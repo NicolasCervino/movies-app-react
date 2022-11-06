@@ -1,0 +1,16 @@
+@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+/* Fuente Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500&display=swap");
+/* Fuente Bebas */
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+
+.bg-dark {
+    /*Modifico la clase de bootstrap */
+    background-color: #141414 !important;
+}
+
+header {
+    position: fixed;
+    z-index: 999;
+    background: transparent;
+}
