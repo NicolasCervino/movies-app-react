@@ -4,7 +4,7 @@ import "./style/navbar.css";
 
 const NavBar = () => {
     return (
-        <Navbar bg="dark" variant="dark" expand="lg">
+        <Navbar bg="transparent" variant="dark" expand="lg">
             <Container>
                 <Link to="/home" className="navbar-brand logo">
                     MoviesApp
