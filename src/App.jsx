@@ -3,6 +3,7 @@ import Home from "./components/home/Home";
 import "./App.css";
 import "./assets/scss/main.css";
 import Navbar from "./components/navbar/NavBar";
+import FeaturedMovies from "./components/featuredMovies/FeaturedMovies";
 
 function App() {
     return (
@@ -10,7 +11,8 @@ function App() {
             <header className="container-fluid">
                 <Navbar></Navbar>
             </header>
-            <main className="container-fluid">
+            <main className="container-fluid p-0">
+                <FeaturedMovies></FeaturedMovies>
                 <Routes>
                     <Route path="/" element={<Navigate to="/home" />} />
                     <Route path="/home" element={<Home></Home>} />
