@@ -10948,4 +10948,8 @@ header {
   position: fixed;
   z-index: 999;
   background: transparent;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
 }/*# sourceMappingURL=main.css.map */
