@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Api from "../../service/api";
-import MainCarrousel from "../mainCarrousel/MainCarrousel";
+import MainCarrousel from "../carrousel/mainCarrousel/MainCarrousel";
 
 const FeaturedMovies = () => {
     const [movies, setMovies] = useState([]);
