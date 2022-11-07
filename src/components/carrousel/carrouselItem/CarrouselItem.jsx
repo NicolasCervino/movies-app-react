@@ -1,8 +1,7 @@
-import { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import "./main-carrousel-item.css";
+import "./carrousel-item.css";
 
-const MainCarrouselItem = ({ movie }) => {
+const CarrouselItem = ({ movie }) => {
     return (
         movie && (
             <>
@@ -38,4 +37,4 @@ const MainCarrouselItem = ({ movie }) => {
     );
 };
 
-export default MainCarrouselItem;
+export default CarrouselItem;

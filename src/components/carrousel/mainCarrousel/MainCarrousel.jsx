@@ -1,4 +1,4 @@
-import MainCarrouselItem from "../mainCarrouselItem/MainCarrouselItem";
+import MainCarrouselItem from "../carrouselItem/CarrouselItem";
 import { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
