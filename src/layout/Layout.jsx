@@ -5,6 +5,7 @@ import FeaturedShows from "../components/featuredShows/FeaturedShows";
 
 const Layout = () => {
     let location = useLocation();
+    console.log(location);
 
     return (
         <>
@@ -12,7 +13,7 @@ const Layout = () => {
                 <Navbar />
             </header>
             <main className="container-fluid p-0">
-                {location.pathname === "/tv-shows" ? <FeaturedShows /> : <FeaturedMovies />}
+                {location.pathname.startsWith("/tv-show") ? <FeaturedShows /> : <FeaturedMovies />}
                 <section>
                     <Outlet />
                 </section>
