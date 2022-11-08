@@ -16,20 +16,31 @@ export const MyListProvider = ({ children }) => {
     }, []);
 
     const movieOnList = (movie) => {
-        return moviesList.includes(movie);
+        return moviesList.find((m) => m.id === movie.id) !== undefined;
     };
 
     const showOnList = (show) => {
-        return showsList.includes(show);
+        return showsList.find((s) => s.id === show.id) !== undefined;
     };
 
     const addMovie = (movie) => {
-        // localStorage.setItem("movies-list", JSON.stringify([movie]));
-        setMoviesList((prevState) => [...prevState, movie]);
+        if (!movieOnList(movie)) {
+            setMoviesList((prevState) => [...prevState, movie]);
+        }
     };
 
     const removeMovie = (movie) => {
         setMoviesList((prevState) => [...prevState.filter((m) => m.id !== movie.id)]);
+    };
+
+    const addShow = (show) => {
+        if (!showOnList(show)) {
+            setShowsList((prevState) => [...prevState, show]);
+        }
+    };
+
+    const removeShow = (show) => {
+        setShowsList((prevState) => [...prevState.filter((s) => s.id !== show.id)]);
     };
 
     return (
@@ -41,6 +52,8 @@ export const MyListProvider = ({ children }) => {
                 showOnList,
                 addMovie,
                 removeMovie,
+                addShow,
+                removeShow,
             }}
         >
             {children}
