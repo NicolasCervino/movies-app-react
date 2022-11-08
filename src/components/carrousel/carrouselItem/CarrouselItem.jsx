@@ -16,7 +16,7 @@ const CarrouselItem = ({ movie, type }) => {
                     <h2 className="text-start titulo-carrousel">{type === "movies" ? movie.title : movie.name}</h2>
                     <p className="text-start subtitulo-carrousel">{movie.overview.slice(0, 200) + "..."}</p>
                 </div>
-                <CarrouselItemButtons movie={movie} />
+                <CarrouselItemButtons movie={movie} type={type} />
             </div>
         </>
     );

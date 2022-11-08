@@ -13,7 +13,7 @@ const FeaturedShows = () => {
             .catch((error) => console.log(error));
     }, []);
 
-    return <MainCarrousel movies={shows} type="shows" size={5}></MainCarrousel>;
+    return <MainCarrousel movies={shows} type={"shows"} size={5}></MainCarrousel>;
 };
 
 export default FeaturedShows;
