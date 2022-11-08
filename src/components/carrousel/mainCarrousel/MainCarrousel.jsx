@@ -2,7 +2,7 @@ import MainCarrouselItem from "../carrouselItem/CarrouselItem";
 import { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 
-const MainCarrousel = ({ movies, size }) => {
+const MainCarrousel = ({ movies, type, size }) => {
     const [showingMovies, setShowingMovies] = useState([]);
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const MainCarrousel = ({ movies, size }) => {
             {showingMovies.map((movie) => {
                 return (
                     <Carousel.Item key={movie.id}>
-                        <MainCarrouselItem movie={movie}></MainCarrouselItem>
+                        <MainCarrouselItem movie={movie} type={type}></MainCarrouselItem>
                     </Carousel.Item>
                 );
             })}
