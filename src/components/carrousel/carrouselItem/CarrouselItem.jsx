@@ -17,7 +17,7 @@ const CarrouselItem = ({ movie }) => {
                         <h2 className="text-start titulo-carrousel">{movie.title}</h2>
                         <p className="text-start subtitulo-carrousel">{movie.overview.slice(0, 200) + "..."}</p>
                     </div>
-                    <CarrouselItemButtons />
+                    <CarrouselItemButtons movie={movie} />
                 </div>
             </>
         )

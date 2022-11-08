@@ -1,12 +1,33 @@
 import "./carrousel-items-buttons.css";
+import { MyListContext } from "../../../context/ListContext";
+import { useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const CarrouselItemButtons = () => {
+const CarrouselItemButtons = ({ movie }) => {
+    const { addMovie, removeMovie, movieOnList } = useContext(MyListContext);
+
+    const handleRemove = () => {
+        removeMovie(movie);
+    };
+
+    const handleAdd = () => {
+        addMovie(movie);
+    };
+
     return (
         <div className="d-flex align-items-center carrousel-caption--buttons">
-            <button type="button" class="btn btn-slide-list btn-slide-remove">
-                <i class="fa-solid fa-check"></i>
-                <span> En mi lista</span>
-            </button>
+            {movieOnList(movie) ? (
+                <button onClick={handleRemove}>
+                    <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+                    <span> En mi lista</span>
+                </button>
+            ) : (
+                <button onClick={handleAdd}>
+                    <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
+                    <span>Agregar a mi lista</span>
+                </button>
+            )}
             <button
                 type="button"
                 className="btn btn-slide-info btn-slide-info-${pelicula.id}"
