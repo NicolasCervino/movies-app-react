@@ -7,6 +7,7 @@ import Layout from "./layout/Layout";
 import MyList from "./routes/myList/MyList";
 import Movies from "./routes/movies/Movies";
 import NotFound from "./routes/404/NotFound";
+import MovieInfo from "./routes/movieInfo/MovieInfo";
 
 function App() {
     return (
@@ -18,7 +19,7 @@ function App() {
                         <Route path="home" element={<Home />} />
                         <Route path="my-list" element={<MyList />} />
                         <Route path="movies" element={<Movies />} />
-                        <Route path="movie/:id" element={<h1>Hello World</h1>} />
+                        <Route path="movie/:id" element={<MovieInfo />} />
                         <Route path="tv-shows" element={<h1>Tv Shows</h1>} />
                         <Route path="tv-show/:id" element={<h1>Tv Shows</h1>} />
                         <Route path="search" element={<h1>Hello World</h1>} />
