@@ -8,7 +8,8 @@ const FeaturedShows = () => {
     useEffect(() => {
         Api.getPopularShows()
             .then((data) => {
-                setShows(data.results);
+                const shows = data.results.filter((s) => s.backdrop_path !== null && s.overview !== "");
+                setShows(shows);
             })
             .catch((error) => console.log(error));
     }, []);
