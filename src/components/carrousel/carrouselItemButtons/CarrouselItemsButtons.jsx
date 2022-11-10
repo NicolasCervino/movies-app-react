@@ -3,6 +3,7 @@ import { MyListContext } from "../../../context/ListContext";
 import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const CarrouselItemButtons = ({ movie, type }) => {
     const { addMovie, removeMovie, movieOnList, addShow, removeShow, showOnList } = useContext(MyListContext);
@@ -43,14 +44,11 @@ const CarrouselItemButtons = ({ movie, type }) => {
                 </button>
             )}
 
-            <button
-                type="button"
-                className="btn btn-slide-info btn-slide-info-${pelicula.id}"
-                data-bs-toggle="modal"
-                data-bs-target="#movieInfoModal"
-            >
-                <span>Mas información</span>
-            </button>
+            <Link to={type === "movies" ? `movie/${movie.id}` : `tv-show/${movie.id}`}>
+                <button>
+                    <span>Mas información</span>
+                </button>
+            </Link>
         </div>
     );
 };
