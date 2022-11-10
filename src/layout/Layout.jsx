@@ -5,7 +5,6 @@ import FeaturedShows from "../components/featuredShows/FeaturedShows";
 
 const Layout = () => {
     let location = useLocation();
-    console.log(location);
 
     return (
         <>
