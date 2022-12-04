@@ -1,0 +1,36 @@
+.img-modalInfo {
+    object-fit: cover;
+    object-position: center;
+}
+.modal--info {
+    border-right: 1px solid #e50914;
+}
+.custom-modal--header {
+    position: relative;
+    width: 100%;
+}
+
+.modal-90w {
+    min-height: 90vh;
+    min-width: 90vw;
+}
+
+.custom-modal--close-button {
+    margin: 15px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 36px;
+    height: 36px;
+    width: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.close-icon {
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
