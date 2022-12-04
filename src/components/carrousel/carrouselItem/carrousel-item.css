@@ -1,16 +1,11 @@
-.img-overlay {
-    width: 100vw;
-    background: black;
-    overflow: hidden;
-}
-.carousel-item img {
+.main-slide {
     width: 100vw;
     height: 80vh;
-    object-fit: cover;
-    object-position: 50% 50%;
-    opacity: 0.65;
+    background-position: center;
+    background-size: cover;
+    background-color: #41464b96;
+    background-blend-mode: multiply;
 }
-
 .titulo-carrousel {
     font-weight: bold;
     font-size: 2.2rem;
