@@ -17,9 +17,18 @@ const MovieInfo = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        const addMovieInfo = (data) => {
+            let movie = data;
+            let director = data.credits.crew.find((crewMember) => crewMember.job == "Director");
+            director = director?.name || null;
+            movie.director = director;
+            return movie;
+        };
+
         Api.getMovieData(id)
             .then((response) => {
-                setMovie(response.data);
+                const movie = addMovieInfo(response.data);
+                setMovie(movie);
             })
             .catch((error) => {
                 navigate("/error");
