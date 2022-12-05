@@ -3,39 +3,25 @@ import { useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-const MovieCardButton = ({ movie, type }) => {
-    const { addMovie, removeMovie, movieOnList, addShow, removeShow, showOnList } = useContext(MyListContext);
+const MovieCardButton = ({ element, type }) => {
+    const { addElement, removeElement, elementOnList } = useContext(MyListContext);
 
     const handleAdd = () => {
-        switch (type) {
-            case "movies":
-                addMovie(movie);
-                break;
-            case "shows":
-                addShow(movie);
-                break;
-        }
+        addElement(element, type);
     };
 
     const handleRemove = () => {
-        switch (type) {
-            case "movies":
-                removeMovie(movie);
-                break;
-            case "shows":
-                removeShow(movie);
-                break;
-        }
+        removeElement(element, type);
     };
 
     return (
         <>
             <button
                 className={"btn d-none position-absolute top-50 start-50 translate-middle rounded-circle text-white"}
-                onClick={movieOnList(movie) || showOnList(movie) ? handleRemove : handleAdd}
+                onClick={elementOnList(element, type) ? handleRemove : handleAdd}
                 style={{ background: "#141619cf", zIndex: 999 }}
             >
-                {movieOnList(movie) || showOnList(movie) ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faPlus} />}
+                {elementOnList(element, type) ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faPlus} />}
             </button>
         </>
     );
