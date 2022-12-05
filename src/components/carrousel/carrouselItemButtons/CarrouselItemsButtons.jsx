@@ -6,33 +6,19 @@ import { faCheck, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const CarrouselItemButtons = ({ movie, type }) => {
-    const { addMovie, removeMovie, movieOnList, addShow, removeShow, showOnList } = useContext(MyListContext);
+    const { addElement, removeElement, elementOnList } = useContext(MyListContext);
 
     const handleRemove = () => {
-        switch (type) {
-            case "movies":
-                removeMovie(movie);
-                break;
-            case "shows":
-                removeShow(movie);
-                break;
-        }
+        removeElement(movie, type);
     };
 
     const handleAdd = () => {
-        switch (type) {
-            case "movies":
-                addMovie(movie);
-                break;
-            case "shows":
-                addShow(movie);
-                break;
-        }
+        addElement(movie, type);
     };
 
     return (
         <div className="d-flex align-items-center carrousel-caption--buttons">
-            {movieOnList(movie) || showOnList(movie) ? (
+            {elementOnList(movie, type) ? (
                 <button onClick={handleRemove}>
                     <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
                     <span> En mi lista</span>
