@@ -14,10 +14,12 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="row px-2">
-            {movies.map((m) => (
-                <MovieCard key={m.id} movie={m} type={"movies"} />
-            ))}
+        <div className="container">
+            <div className="row px-2">
+                {movies.map((m) => (
+                    <MovieCard key={m.id} element={m} type={"movies"} />
+                ))}
+            </div>
         </div>
     );
 };
