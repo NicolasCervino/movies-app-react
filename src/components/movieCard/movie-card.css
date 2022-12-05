@@ -20,4 +20,6 @@
 .titulo-card {
     font-family: "Poppins", sans-serif;
     cursor: pointer;
+    text-decoration: none;
+    font-size: 1rem;
 }
