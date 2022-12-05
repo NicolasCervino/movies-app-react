@@ -13,9 +13,7 @@ const Layout = () => {
             </header>
             <main className="container-fluid p-0">
                 {location.pathname.startsWith("/tv-show") ? <FeaturedShows /> : <FeaturedMovies />}
-                <section>
-                    <Outlet />
-                </section>
+                <Outlet />
             </main>
         </>
     );
