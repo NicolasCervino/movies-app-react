@@ -21,9 +21,11 @@ const getPopularShows = async () => {
 };
 
 const getMovieData = async (movieId) => {
-    return await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=es-ARG`).then((response) => {
-        return response;
-    });
+    return await axios
+        .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=es-ARG&append_to_response=credits`)
+        .then((response) => {
+            return response;
+        });
 };
 
 const Api = {
