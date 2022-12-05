@@ -1,0 +1,23 @@
+.card {
+    /* width: 80%; */
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.card img {
+    transition: transform 0.3s linear;
+}
+.card:hover img {
+    transform: scale(1.2);
+    /* filter: blur(2px); */
+    opacity: 0.65;
+}
+
+.card:hover .btn {
+    display: inline !important;
+}
+
+.titulo-card {
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+}
