@@ -43,17 +43,47 @@ export const MyListProvider = ({ children }) => {
         setShowsList((prevState) => [...prevState.filter((s) => s.id !== show.id)]);
     };
 
+    const addElement = (element, type) => {
+        switch (type) {
+            case "movies":
+                addMovie(element);
+                break;
+            case "shows":
+                addShow(element);
+                break;
+        }
+    };
+
+    const removeElement = (element, type) => {
+        switch (type) {
+            case "movies":
+                removeMovie(element);
+                break;
+            case "shows":
+                removeShow(element);
+                break;
+        }
+    };
+
+    const elementOnList = (element, type) => {
+        switch (type) {
+            case "movies":
+                return movieOnList(element);
+                break;
+            case "shows":
+                return showOnList(element);
+                break;
+        }
+    };
+
     return (
         <MyListContext.Provider
             value={{
                 moviesList,
                 showsList,
-                movieOnList,
-                showOnList,
-                addMovie,
-                removeMovie,
-                addShow,
-                removeShow,
+                addElement,
+                removeElement,
+                elementOnList,
             }}
         >
             {children}
