@@ -1,0 +1,36 @@
+.category-selector {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.category-selector--link {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.3s linear;
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.active-category {
+    border-bottom: 2px solid #e50914;
+}
+
+.category-selector--link:hover {
+    color: #e50914;
+    animation: zoom 300ms ease-in;
+    animation-name: zoom;
+}
+
+@keyframes zoom {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.07);
+    }
+}
