@@ -3,21 +3,13 @@ import MovieSwiper from "../swiper/MovieSwiper";
 import Api from "../../service/api";
 
 const MovieSwipers = () => {
-    const [popularMovies, setPopularMovies] = useState([]);
-    const [topMovies, setTopMovies] = useState([]);
+    const [popularMovies, setPopularMovies] = useState(null);
+    const [topMovies, setTopMovies] = useState(null);
 
     useEffect(() => {
         Api.getPopularMovies()
             .then((data) => {
                 setPopularMovies(data.results);
-            })
-            .catch((error) => console.log(error));
-    }, []);
-
-    useEffect(() => {
-        Api.getPopularShows()
-            .then((data) => {
-                setShows(data.results);
             })
             .catch((error) => console.log(error));
     }, []);
@@ -29,6 +21,7 @@ const MovieSwipers = () => {
             })
             .catch((error) => console.log(error));
     }, []);
+
     return (
         <div className="row px-2">
             <div className="col-12 justify-content-center p-2">

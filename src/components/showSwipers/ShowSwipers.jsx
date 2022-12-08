@@ -3,9 +3,8 @@ import MovieSwiper from "../swiper/MovieSwiper";
 import Api from "../../service/api";
 
 const ShowSwipers = () => {
-    const [shows, setShows] = useState([]);
-
-    const [topShows, setTopShows] = useState([]);
+    const [shows, setShows] = useState(null);
+    const [topShows, setTopShows] = useState(null);
 
     useEffect(() => {
         Api.getPopularShows()
