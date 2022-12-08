@@ -1,4 +1,4 @@
-import { useParams, useNavigate, redirect } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CustomModal from "../../components/modal/CustomModal";
 import Api from "../../service/api";
@@ -11,7 +11,8 @@ const MovieInfo = () => {
 
     const handleClose = () => {
         setShow(false);
-        navigate("/movies");
+        //navigate("/movies");
+        navigate(-1);
     };
 
     const navigate = useNavigate();
@@ -30,7 +31,7 @@ const MovieInfo = () => {
                 const movie = addMovieInfo(response.data);
                 setMovie(movie);
             })
-            .catch((error) => {
+            .catch(() => {
                 navigate("/error");
             });
     }, [id]);
