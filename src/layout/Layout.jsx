@@ -11,8 +11,10 @@ const Layout = () => {
             <header className="container-fluid">
                 <Navbar />
             </header>
-            <main className="container-fluid p-0">
+            <section className="container-fluid p-0">
                 {location.pathname.startsWith("/tv-show") ? <FeaturedShows /> : <FeaturedMovies />}
+            </section>
+            <main className="container-fluid p-0">
                 <Outlet />
             </main>
         </>
