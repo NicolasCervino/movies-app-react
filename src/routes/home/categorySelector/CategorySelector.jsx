@@ -10,7 +10,7 @@ const CategorySelector = ({ category, setCategory }) => {
     };
 
     return (
-        <div className="col-12 category-selector py-3 px-2">
+        <div className="col-12 category-selector py-3 px-2 justify-content-center justify-content-sm-start">
             <a className={`category-selector--link ${category === "movies" ? "active-category" : ""}`} onClick={handleSetMovies}>
                 <h3 value={"movies"}>Peliculas</h3>
             </a>
