@@ -28,10 +28,20 @@ const getMovieData = async (movieId) => {
         });
 };
 
+const getTopMovies = async () => {
+    return await axios
+        .get(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=es-AR`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => console.log(error));
+};
+
 const Api = {
     getPopularMovies,
     getPopularShows,
     getMovieData,
+    getTopMovies,
 };
 
 export default Api;
