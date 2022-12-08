@@ -1,0 +1,15 @@
+.see-more {
+    background-color: transparent !important;
+    color: white;
+    border: none !important;
+}
+
+.see-more-link {
+    border-radius: 50px;
+    background-color: #fff;
+    min-width: 5rem;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
