@@ -1,25 +1,15 @@
-import { useState, useEffect } from "react";
-import Api from "../../service/api";
-import MovieCard from "../../components/movieCard/MovieCard";
+import { useState } from "react";
+import CategorySelector from "./categorySelector/CategorySelector";
+import MovieSwipers from "../../components/movieSwipers/MovieSwipers";
+import ShowSwipers from "../../components/showSwipers/ShowSwipers";
 
 const Home = () => {
-    const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-        Api.getPopularMovies()
-            .then((data) => {
-                setMovies(data.results);
-            })
-            .catch((error) => console.log(error));
-    }, []);
+    const [category, setCategory] = useState("movies");
 
     return (
         <div className="container">
-            <div className="row px-2">
-                {movies.map((m) => (
-                    <MovieCard key={m.id} element={m} type={"movies"} />
-                ))}
-            </div>
+            <CategorySelector category={category} setCategory={setCategory} />
+            {category === "movies" ? <MovieSwipers /> : <ShowSwipers />}
         </div>
     );
 };
