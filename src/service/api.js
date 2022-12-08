@@ -37,11 +37,21 @@ const getTopMovies = async () => {
         .catch((error) => console.log(error));
 };
 
+const getTopShows = async () => {
+    return await axios
+        .get(`https://api.themoviedb.org/3/tv/top_rated?api_key=${apiKey}&language=es-AR`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => console.log(error));
+};
+
 const Api = {
     getPopularMovies,
     getPopularShows,
     getMovieData,
     getTopMovies,
+    getTopShows,
 };
 
 export default Api;
