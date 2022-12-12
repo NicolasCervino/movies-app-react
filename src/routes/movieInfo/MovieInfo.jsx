@@ -26,7 +26,7 @@ const MovieInfo = () => {
             return movie;
         };
 
-        Api.getMovieData(id)
+        Api.getData(id, "movie")
             .then((response) => {
                 const movie = addMovieInfo(response.data);
                 setMovie(movie);
