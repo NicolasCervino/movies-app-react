@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CustomModal from "../../components/modal/CustomModal";
+import ModalContent from "../../components/modal/modalContent/ModalContent";
 import Api from "../../service/api";
 
 const MovieInfo = () => {
@@ -36,7 +37,13 @@ const MovieInfo = () => {
             });
     }, [id]);
 
-    return movie && <CustomModal show={show} handleClose={handleClose} movie={movie} type={"movies"}></CustomModal>;
+    return (
+        movie && (
+            <CustomModal show={show} handleClose={handleClose}>
+                <ModalContent element={movie} type={"movies"} handleClose={handleClose} />
+            </CustomModal>
+        )
+    );
 };
 
 export default MovieInfo;
