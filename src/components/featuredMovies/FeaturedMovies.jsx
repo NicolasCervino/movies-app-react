@@ -6,7 +6,7 @@ const FeaturedMovies = () => {
     const [movies, setMovies] = useState([]);
 
     useEffect(() => {
-        Api.getPopularMovies()
+        Api.getPopular("movie")
             .then((data) => {
                 setMovies(data.results);
             })

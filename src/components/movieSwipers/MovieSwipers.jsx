@@ -7,7 +7,7 @@ const MovieSwipers = () => {
     const [topMovies, setTopMovies] = useState(null);
 
     useEffect(() => {
-        Api.getPopularMovies()
+        Api.getPopular("movie")
             .then((data) => {
                 setPopularMovies(data.results);
             })
@@ -15,7 +15,7 @@ const MovieSwipers = () => {
     }, []);
 
     useEffect(() => {
-        Api.getTopMovies()
+        Api.getTop("movie")
             .then((data) => {
                 setTopMovies(data.results);
             })

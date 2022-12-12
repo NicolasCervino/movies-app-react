@@ -17,14 +17,14 @@ const Movies = () => {
     useEffect(() => {
         switch (category) {
             case "popular":
-                Api.getPopularMovies().then((data) => setMovies(data.results));
+                Api.getPopular("movie").then((data) => setMovies(data.results));
                 break;
             case "top_rated":
-                Api.getTopMovies().then((data) => setMovies(data.results));
+                Api.getTop("movie").then((data) => setMovies(data.results));
                 sortOptions(category);
                 break;
             case "upcoming":
-                Api.getUpcomingMovies().then((data) => setMovies(data.results));
+                Api.getUpcoming("movie").then((data) => setMovies(data.results));
                 sortOptions(category);
                 break;
             default:
