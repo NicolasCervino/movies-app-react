@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import MovieCard from "../movieCard/MovieCard";
 import SeeMoreSlide from "./seeMoreSlide/SeeMoreSlide";
 
-const MovieSwiper = ({ elements, type }) => {
+const MovieSwiper = ({ elements, type, category }) => {
     return (
         <Swiper
             modules={[Navigation, Mousewheel]}
@@ -44,7 +44,7 @@ const MovieSwiper = ({ elements, type }) => {
                         </SwiperSlide>
                     ))}
                     <SwiperSlide className="d-flex align-items-center h-auto">
-                        <SeeMoreSlide type={type} />
+                        <SeeMoreSlide type={type} category={category} />
                     </SwiperSlide>
                 </>
             )}
