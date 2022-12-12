@@ -7,10 +7,10 @@ const Home = () => {
     const [category, setCategory] = useState("movies");
 
     return (
-        <div className="container">
+        <>
             <CategorySelector category={category} setCategory={setCategory} />
             {category === "movies" ? <MovieSwipers /> : <ShowSwipers />}
-        </div>
+        </>
     );
 };
 

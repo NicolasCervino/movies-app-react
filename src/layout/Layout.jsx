@@ -14,7 +14,7 @@ const Layout = () => {
             <section className="container-fluid p-0">
                 {location.pathname.startsWith("/tv-show") ? <FeaturedShows /> : <FeaturedMovies />}
             </section>
-            <main className="container-fluid p-0">
+            <main className="container">
                 <Outlet />
             </main>
         </>
