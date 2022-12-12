@@ -15,7 +15,6 @@ const MovieCard = ({ element, type }) => {
             <div className={"card movie-card position-relative"}>
                 <Link to={type === "movies" ? `/movie/${element.id}` : `/tv-show/${element.id}`} className="bg-dark">
                     <img
-                        on
                         onLoad={handleLoad}
                         src={`https://image.tmdb.org/t/p/w500/${element.poster_path}`}
                         loading={"lazy"}
