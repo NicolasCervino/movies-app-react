@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Api from "../../service/api";
 import MovieCard from "../../components/movieCard/MovieCard";
-import "./movies.css";
+import CategorySelector from "../../components/categorySelector/CategorySelector";
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
@@ -24,19 +24,13 @@ const Movies = () => {
                 sortOptions(category);
                 break;
             case "upcoming":
-                Api.getUpcoming("movie").then((data) => setMovies(data.results));
+                Api.getUpcoming().then((data) => setMovies(data.results));
                 sortOptions(category);
                 break;
             default:
                 setCategory("popular"); // In case of any random hash
         }
     }, [category]);
-
-    // Change category and hash on select change
-    const handleSelectChange = (e) => {
-        setCategory(e.target.value);
-        window.location.hash = "#" + e.target.value;
-    };
 
     // Puts current value as first option
     const sortOptions = (currentValue) => {
@@ -49,15 +43,7 @@ const Movies = () => {
         <>
             <div className="row">
                 <div className="col-12 category-selector py-3 px-2 justify-content-center justify-content-sm-start">
-                    <div className="category-select">
-                        <select onChange={(e) => handleSelectChange(e)} defaultValue={category}>
-                            {options.map((o) => (
-                                <option key={o.value} value={o.value}>
-                                    {o.label}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+                    <CategorySelector options={options} category={category} setCategory={setCategory} />
                 </div>
             </div>
             <div className="row">
