@@ -9,6 +9,7 @@ import Movies from "./routes/movies/Movies";
 import NotFound from "./routes/404/NotFound";
 import MovieInfo from "./routes/movieInfo/MovieInfo";
 import ShowInfo from "./routes/showInfo/ShowInfo";
+import Shows from "./routes/shows/Shows";
 
 function App() {
     return (
@@ -21,7 +22,7 @@ function App() {
                         <Route path="my-list" element={<MyList />} />
                         <Route path="movies" element={<Movies />} />
                         <Route path="movie/:id" element={<MovieInfo />} />
-                        <Route path="tv-shows" element={<h1>Tv Shows</h1>} />
+                        <Route path="tv-shows" element={<Shows />} />
                         <Route path="tv-show/:id" element={<ShowInfo />} />
                         <Route path="search" element={<h1>Hello World</h1>} />
                         <Route path="genres" element={<h1>Hello World</h1>} />
