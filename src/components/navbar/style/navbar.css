@@ -1,5 +1,5 @@
 .logo {
-  font-family: "Bebas Neue", cursive;
-  color: #e50914;
-  font-size: 32px;
-}/*# sourceMappingURL=navbar.css.map */
+    font-family: "Bebas Neue", cursive;
+    color: var(--main-color);
+    font-size: 32px;
+} /*# sourceMappingURL=navbar.css.map */

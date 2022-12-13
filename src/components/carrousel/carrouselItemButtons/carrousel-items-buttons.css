@@ -1,14 +1,14 @@
 .carrousel-caption--buttons button {
     padding: 6px 12px;
     border-radius: 20px;
-    background: #e50914;
-    border: 2px solid #e50914;
+    background: var(--main-color);
+    border: 2px solid var(--main-color);
     color: #fff;
     margin-right: 10px;
     /* font-size: 12px; */
     font-size: 0.9rem;
     font-weight: 500;
-    box-shadow: 0px 3px 10px #e50914;
+    box-shadow: 0px 3px 10px var(--main-color);
     transition: 0.3s linear;
     cursor: pointer;
     z-index: 100;
@@ -32,8 +32,8 @@
 }
 
 .carrousel-caption--buttons button:nth-child(2):hover {
-    background: #e50914;
-    border: 2px solid #e50914;
+    background: var(--main-color);
+    border: 2px solid var(--main-color);
     color: #fff;
-    box-shadow: 0px 3px 10px #e50914;
+    box-shadow: 0px 3px 10px var(--main-color);
 }

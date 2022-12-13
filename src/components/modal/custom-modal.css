@@ -3,7 +3,7 @@
     object-position: center;
 }
 .modal--info {
-    border-right: 1px solid #e50914;
+    border-right: 1px solid var(--main-color);
 }
 .custom-modal--header {
     position: relative;

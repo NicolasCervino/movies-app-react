@@ -41,5 +41,5 @@ select::-ms-expand {
     transition: 0.25s all ease;
 }
 .category-select:hover::after {
-    color: #e50914;
+    color: var(--main-color);
 }
