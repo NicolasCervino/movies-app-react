@@ -13,6 +13,8 @@
     cursor: pointer;
     z-index: 100;
     width: 171px;
+    height: 100%;
+    font-size: 0.8rem;
 }
 
 .carrousel-caption--buttons button:nth-child(2) {
@@ -34,9 +36,4 @@
     border: 2px solid #e50914;
     color: #fff;
     box-shadow: 0px 3px 10px #e50914;
-}
-
-.carrousel-caption--buttons a {
-    width: 171px;
-    border-radius: 20px;
 }
