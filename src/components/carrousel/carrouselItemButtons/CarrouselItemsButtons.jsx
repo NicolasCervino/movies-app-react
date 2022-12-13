@@ -1,12 +1,14 @@
 import "./carrousel-items-buttons.css";
 import { MyListContext } from "../../../context/ListContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faCheck, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 
 const CarrouselItemButtons = ({ movie, type }) => {
     const { addElement, removeElement, elementOnList } = useContext(MyListContext);
+
+    const [isShown, setIsShown] = useState(false);
 
     const navigate = useNavigate();
 
@@ -25,9 +27,9 @@ const CarrouselItemButtons = ({ movie, type }) => {
     return (
         <div className="d-flex align-items-center carrousel-caption--buttons">
             {elementOnList(movie, type) ? (
-                <button onClick={handleRemove}>
-                    <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-                    <span> En mi lista</span>
+                <button onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)} onClick={handleRemove}>
+                    {isShown ? <FontAwesomeIcon icon={faXmark} /> : <FontAwesomeIcon icon={faCheck} />}
+                    {isShown ? <span> Eliminar de mi lista</span> : <span> En mi lista</span>}
                 </button>
             ) : (
                 <button onClick={handleAdd}>
