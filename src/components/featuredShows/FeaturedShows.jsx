@@ -6,7 +6,7 @@ const FeaturedShows = () => {
     const [shows, setShows] = useState([]);
 
     useEffect(() => {
-        Api.getPopular("tv")
+        Api.getTop("tv")
             .then((data) => {
                 const shows = data.results.filter((s) => s.backdrop_path !== null && s.overview !== "");
                 setShows(shows);
