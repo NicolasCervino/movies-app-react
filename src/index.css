@@ -1,3 +1,8 @@
+:root {
+    --main-color: #e50914;
+    --swiper-theme-color: var(--main-color);
+}
+
 body {
     background-color: #141414;
 }
