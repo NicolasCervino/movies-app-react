@@ -26,12 +26,12 @@ const ShowSwipers = () => {
         <div className="row px-2">
             <div className="col-12 justify-content-center p-2">
                 <h3 className="text-white text-uppercase">Series Populares:</h3>
-                <MovieSwiper elements={shows} type="shows"></MovieSwiper>
+                <MovieSwiper elements={shows} type="shows" category={"popular"}></MovieSwiper>
             </div>
 
             <div className="col-12 justify-content-center p-2">
                 <h3 className="text-white text-uppercase">Mejor valoradas:</h3>
-                <MovieSwiper elements={topShows} type="shows"></MovieSwiper>
+                <MovieSwiper elements={topShows} type="shows" category={"top_rated"}></MovieSwiper>
             </div>
         </div>
     );
