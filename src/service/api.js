@@ -28,9 +28,20 @@ const getTop = async (type) => {
         .catch((error) => console.log(error));
 };
 
-const getUpcoming = async (type) => {
+// Only works with Movies
+const getUpcoming = async () => {
     return await axios
-        .get(`https://api.themoviedb.org/3/${type}/upcoming?api_key=${apiKey}&language=es-AR`)
+        .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es-AR`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => console.log(error));
+};
+
+// Only works with TV
+const getAiring = async () => {
+    return await axios
+        .get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKey}&language=es-AR`)
         .then((response) => {
             return response.data;
         })
@@ -42,6 +53,7 @@ const Api = {
     getData,
     getTop,
     getUpcoming,
+    getAiring,
 };
 
 export default Api;
