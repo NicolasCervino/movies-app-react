@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Api from "../../service/api";
-import MovieCard from "../../components/movieCard/MovieCard";
 import CategorySelector from "../../components/categorySelector/CategorySelector";
+import InfiniteCardScroll from "../../components/InfiniteScroll/InfiniteCardScroll";
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
@@ -13,18 +13,29 @@ const Movies = () => {
         { value: "upcoming", label: "Proximamente" },
     ]);
 
-    // Change movies on category and sort options
+    const [totalPages, setTotalPages] = useState();
+
+    // Change first movies on category and sort options
     useEffect(() => {
         switch (category) {
             case "popular":
-                Api.getPopular("movie").then((data) => setMovies(data.results));
+                Api.getPopular("movie").then((data) => {
+                    setMovies(data.results);
+                    setTotalPages(data.total_pages);
+                });
                 break;
             case "top_rated":
-                Api.getTop("movie").then((data) => setMovies(data.results));
+                Api.getTop("movie").then((data) => {
+                    setMovies(data.results);
+                    setTotalPages(data.total_pages);
+                });
                 sortOptions(category);
                 break;
             case "upcoming":
-                Api.getUpcoming().then((data) => setMovies(data.results));
+                Api.getUpcoming().then((data) => {
+                    setMovies(data.results);
+                    setTotalPages(data.total_pages);
+                });
                 sortOptions(category);
                 break;
             default:
@@ -47,11 +58,7 @@ const Movies = () => {
                 </div>
             </div>
             <div className="row">
-                {movies.map((m) => (
-                    <div className="col-6 col-sm-3 col-xl-2 p-2" key={m.id}>
-                        <MovieCard element={m} type={"movies"} />
-                    </div>
-                ))}
+                <InfiniteCardScroll elements={movies} setElements={setMovies} type={"movie"} category={category} totalPages={totalPages} />
             </div>
         </>
     );
