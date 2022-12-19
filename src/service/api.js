@@ -2,9 +2,9 @@ import axios from "axios";
 
 const apiKey = "f3b242b5857fe6135b2f4c0420e0ba0b";
 
-const getPopular = async (type) => {
+const getPopular = async (type, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/${type}/popular?api_key=${apiKey}&language=es-AR`)
+        .get(`https://api.themoviedb.org/3/${type}/popular?api_key=${apiKey}&language=es-AR&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -19,9 +19,9 @@ const getData = async (movieId, type) => {
         });
 };
 
-const getTop = async (type) => {
+const getTop = async (type, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/${type}/top_rated?api_key=${apiKey}&language=es-AR`)
+        .get(`https://api.themoviedb.org/3/${type}/top_rated?api_key=${apiKey}&language=es-AR&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -29,9 +29,9 @@ const getTop = async (type) => {
 };
 
 // Only works with Movies
-const getUpcoming = async () => {
+const getUpcoming = async (page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es-AR`)
+        .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es-AR&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -39,13 +39,34 @@ const getUpcoming = async () => {
 };
 
 // Only works with TV
-const getAiring = async () => {
+const getAiring = async (page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKey}&language=es-AR`)
+        .get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKey}&language=es-AR&page=${page}`)
         .then((response) => {
             return response.data;
         })
         .catch((error) => console.log(error));
+};
+
+const getByCategory = async (category, type, page) => {
+    switch (category) {
+        case "popular":
+            return await getPopular(type, page).then((data) => data);
+
+        case "top_rated":
+            return await getTop(type, page).then((data) => data);
+
+        case "upcoming":
+            return await getUpcoming(page).then((data) => {
+                return data;
+            });
+
+        case "on_the_air":
+            return await getAiring(type, page).then((data) => data);
+
+        default:
+            return await getPopular(type, page).then((data) => data);
+    }
 };
 
 const Api = {
@@ -54,6 +75,7 @@ const Api = {
     getTop,
     getUpcoming,
     getAiring,
+    getByCategory,
 };
 
 export default Api;
