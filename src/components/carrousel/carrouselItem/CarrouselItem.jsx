@@ -31,7 +31,7 @@ const CarrouselItem = ({ movie, type }) => {
             }
         >
             <div className={`carousel-caption text-start ${!isMobile ? "w-50 px-2" : ""}`}>
-                <h2 className="titulo-carrousel">{type === "movies" ? movie.title : movie.name}</h2>
+                <h2 className="titulo-carrousel">{type === "movie" ? movie.title : movie.name}</h2>
                 <p className="subtitulo-carrousel">
                     {!isMobile ? movie.overview.slice(0, 300) + "..." : movie.overview.slice(0, 150) + "..."}
                 </p>

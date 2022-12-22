@@ -7,7 +7,7 @@ const ModalInfo = ({ element, type }) => {
             <div className="row">
                 {/* Movie/Show Title */}
                 <div className="col-12">
-                    <h3>{type === "movies" ? element.title : element.name}</h3>
+                    <h3>{type === "movie" ? element.title : element.name}</h3>
                 </div>
 
                 <div className="col-12 col-lg-8">
@@ -18,7 +18,7 @@ const ModalInfo = ({ element, type }) => {
                             {element.director}
                         </span>
 
-                        {type === "movies" ? (
+                        {type === "movie" ? (
                             <span className="modal--info pe-2">
                                 <span style={{ color: "#777" }}> Duracion: </span>
                                 {element.runtime + "m"}
@@ -37,7 +37,7 @@ const ModalInfo = ({ element, type }) => {
 
                         <span className="modal--info pe-2">
                             <span style={{ color: "#777" }}> Año: </span>
-                            {type === "movies"
+                            {type === "movie"
                                 ? new Date(element.release_date).getFullYear()
                                 : new Date(element.first_air_date).getFullYear()}
                         </span>

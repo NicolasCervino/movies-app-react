@@ -21,7 +21,7 @@ const CarrouselItemButtons = ({ movie, type }) => {
     };
 
     const handleInfo = () => {
-        type === "movies" ? navigate(`movie/${movie.id}`) : navigate(`tv-show/${movie.id}`);
+        type === "movie" ? navigate(`movie/${movie.id}`) : navigate(`tv-show/${movie.id}`);
     };
 
     return (

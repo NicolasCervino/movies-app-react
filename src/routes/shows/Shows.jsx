@@ -49,7 +49,7 @@ const Shows = () => {
             <div className="row">
                 {movies.map((m) => (
                     <div className="col-6 col-sm-3 col-xl-2 p-2" key={m.id}>
-                        <MovieCard element={m} type={"shows"} />
+                        <MovieCard element={m} type={"tv"} />
                     </div>
                 ))}
             </div>

@@ -18,7 +18,7 @@ const FeaturedShows = () => {
             .finally(setTimeout(() => setLoading(false), 1000));
     }, []);
 
-    return loading ? <LoadingCarrousel /> : <MainCarrousel movies={shows} type={"shows"} size={5} />;
+    return loading ? <LoadingCarrousel /> : <MainCarrousel movies={shows} type={"tv"} size={5} />;
 };
 
 export default FeaturedShows;

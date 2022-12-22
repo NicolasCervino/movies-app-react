@@ -45,10 +45,10 @@ export const MyListProvider = ({ children }) => {
 
     const addElement = (element, type) => {
         switch (type) {
-            case "movies":
+            case "movie":
                 addMovie(element);
                 break;
-            case "shows":
+            case "tv":
                 addShow(element);
                 break;
         }
@@ -56,10 +56,10 @@ export const MyListProvider = ({ children }) => {
 
     const removeElement = (element, type) => {
         switch (type) {
-            case "movies":
+            case "movie":
                 removeMovie(element);
                 break;
-            case "shows":
+            case "tv":
                 removeShow(element);
                 break;
         }
@@ -67,12 +67,10 @@ export const MyListProvider = ({ children }) => {
 
     const elementOnList = (element, type) => {
         switch (type) {
-            case "movies":
+            case "movie":
                 return movieOnList(element);
-                break;
-            case "shows":
+            case "tv":
                 return showOnList(element);
-                break;
         }
     };
 
