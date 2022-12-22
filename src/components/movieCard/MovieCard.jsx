@@ -12,30 +12,21 @@ const MovieCard = ({ element, type, genreName, category }) => {
 
     const linkPath = () => {
         switch (type) {
-            case "movies":
+            case "movie":
                 return `/movie/${element.id}`;
-            case "shows":
+            case "tv":
                 return `/tv-show/${element.id}`;
             case "genre":
                 return `/genre/${category}/${genreName.replace(/\s+/g, "").toLowerCase()}`;
-        }
-        switch (type) {
-            case "movies":
-                return element.title;
-
-            case "shows":
-                return element.name;
-            case "genre":
-                return genreName;
         }
     };
 
     const renderTitle = () => {
         switch (type) {
-            case "movies":
+            case "movie":
                 return element.title;
 
-            case "shows":
+            case "tv":
                 return element.name;
             case "genre":
                 return genreName;
@@ -57,6 +48,7 @@ const MovieCard = ({ element, type, genreName, category }) => {
                         className="card-img-top"
                         draggable={false}
                     />
+                    <h4 className={"d-none position-absolute top-50 start-50 translate-middle text-white unselectable"}>{genreName}</h4>
 
                     <div className="d-flex justify-content-center bg-dark">
                         <div className={`spinner-border text-danger ${!loading ? "d-none" : ""}`} role="status">
@@ -64,11 +56,7 @@ const MovieCard = ({ element, type, genreName, category }) => {
                         </div>
                     </div>
                 </Link>
-                {type === "genre" ? (
-                    <h4 className={"d-none position-absolute top-50 start-50 translate-middle text-white"}>{genreName}</h4>
-                ) : (
-                    <MovieCardButton element={element} type={type} />
-                )}
+                {type !== "genre" ? <MovieCardButton element={element} type={type} /> : ""}
             </div>
 
             <Link className="titulo-card text-white" to={linkPath()}>
