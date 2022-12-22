@@ -13,7 +13,7 @@ const GenreCard = ({ genre, category }) => {
 
     return (
         <div className="col-6 col-sm-3 col-xl-3 p-2">
-            <MovieCard element={element} type={"genre"} genreName={genre.name} />
+            <MovieCard element={element} type={"genre"} genreName={genre.name} category={category} />
         </div>
     );
 };
