@@ -10,6 +10,7 @@ import NotFound from "./routes/404/NotFound";
 import MovieInfo from "./routes/movieInfo/MovieInfo";
 import ShowInfo from "./routes/showInfo/ShowInfo";
 import Shows from "./routes/shows/Shows";
+import Genres from "./routes/genres/Genres";
 
 function App() {
     return (
@@ -25,7 +26,7 @@ function App() {
                         <Route path="tv-shows" element={<Shows />} />
                         <Route path="tv-show/:id" element={<ShowInfo />} />
                         <Route path="search" element={<h1>Hello World</h1>} />
-                        <Route path="genres" element={<h1>Hello World</h1>} />
+                        <Route path="genres" element={<Genres />} />
                         <Route path="genre/:genreName" element={<h1>Hello World</h1>} />
                     </Route>
                     <Route path="*" element={<Navigate replace to="/error" />} />
