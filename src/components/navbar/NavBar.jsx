@@ -39,21 +39,9 @@ const NavBar = () => {
                         <Link to="/tv-shows" className="nav-link">
                             Series
                         </Link>
-                        <NavDropdown title="Generos" id="basic-nav-dropdown">
-                            <Link to="/genre/action" className="dropdown-item">
-                                Acción
-                            </Link>
-                            <Link to="/genre/science-fiction" className="dropdown-item">
-                                Ciencia Ficción
-                            </Link>
-                            <Link to="/genre/drama" className="dropdown-item">
-                                Drama
-                            </Link>
-                            <NavDropdown.Divider />
-                            <Link to="/genres" className="dropdown-item">
-                                Todos
-                            </Link>
-                        </NavDropdown>
+                        <Link to="/genres" className="nav-link">
+                            Generos
+                        </Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
