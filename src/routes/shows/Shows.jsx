@@ -32,12 +32,6 @@ const Shows = () => {
         }
     }, [category]);
 
-    // Change category and hash on select change
-    const handleSelectChange = (e) => {
-        setCategory(e.target.value);
-        window.location.hash = "#" + e.target.value;
-    };
-
     // Puts current value as first option
     const sortOptions = (currentValue) => {
         let newOptions = [options.find((o) => o.value === currentValue)];
