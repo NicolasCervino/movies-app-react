@@ -3,20 +3,56 @@ import "./movie-card.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({ element, type }) => {
+const MovieCard = ({ element, type, genreName }) => {
     const [loading, setLoading] = useState(true);
 
     const handleLoad = () => {
         setLoading(false);
     };
 
+    const linkPath = () => {
+        switch (type) {
+            case "movies":
+                return `/movie/${element.id}`;
+            case "shows":
+                return `/tv-show/${element.id}`;
+            case "genre":
+                return `/genre/${genreName.toLowerCase()}`;
+        }
+        switch (type) {
+            case "movies":
+                return element.title;
+
+            case "shows":
+                return element.name;
+            case "genre":
+                return genreName;
+        }
+    };
+
+    const renderTitle = () => {
+        switch (type) {
+            case "movies":
+                return element.title;
+
+            case "shows":
+                return element.name;
+            case "genre":
+                return genreName;
+        }
+    };
+
     return (
         <>
             <div className={"card movie-card position-relative"}>
-                <Link to={type === "movies" ? `/movie/${element.id}` : `/tv-show/${element.id}`} className="bg-dark">
+                <Link to={linkPath()} className="bg-dark">
                     <img
                         onLoad={handleLoad}
-                        src={`https://image.tmdb.org/t/p/w500/${element.poster_path}`}
+                        src={
+                            type === "genre"
+                                ? `https://image.tmdb.org/t/p/w500/${element.backdrop_path}`
+                                : `https://image.tmdb.org/t/p/w500/${element.poster_path}`
+                        }
                         loading={"lazy"}
                         className="card-img-top"
                         draggable={false}
@@ -28,11 +64,17 @@ const MovieCard = ({ element, type }) => {
                         </div>
                     </div>
                 </Link>
-                <MovieCardButton element={element} type={type} />
+                {type === "genre" ? (
+                    <h1 className={"btn d-none position-absolute top-50 start-50 translate-middle rounded-circle text-white"}>
+                        {genreName}
+                    </h1>
+                ) : (
+                    <MovieCardButton element={element} type={type} />
+                )}
             </div>
 
-            <Link className="titulo-card text-white" to={type === "movies" ? `/movie/${element.id}` : `/tv-show/${element.id}`}>
-                {type === "movies" ? element.title : element.name}
+            <Link className="titulo-card text-white" to={linkPath()}>
+                {renderTitle()}
             </Link>
         </>
     );
