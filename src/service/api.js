@@ -78,9 +78,9 @@ const getGenres = async (type) => {
         .catch((error) => console.log(error));
 };
 
-const getByGenre = async (type, genreId) => {
+const getByGenre = async (type, genreId, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/discover/${type}?api_key=${apiKey}&language=es-ARG&with_genres=${genreId}`)
+        .get(`https://api.themoviedb.org/3/discover/${type}?api_key=${apiKey}&language=es-ARG&with_genres=${genreId}&page=${page}`)
         .then((response) => {
             return response.data;
         })
