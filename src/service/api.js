@@ -69,6 +69,24 @@ const getByCategory = async (category, type, page) => {
     }
 };
 
+const getGenres = async (type) => {
+    return await axios
+        .get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${apiKey}&language=es-AR`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => console.log(error));
+};
+
+const getByGenre = async (type, genreId) => {
+    return await axios
+        .get(`https://api.themoviedb.org/3/discover/${type}?api_key=${apiKey}&language=es-ARG&with_genres=${genreId}`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => console.log(error));
+};
+
 const Api = {
     getPopular,
     getData,
@@ -76,6 +94,8 @@ const Api = {
     getUpcoming,
     getAiring,
     getByCategory,
+    getGenres,
+    getByGenre,
 };
 
 export default Api;
