@@ -15,7 +15,7 @@ const Genres = () => {
 
     return (
         <>
-            <CategorySelector category={category} setCategory={setCategory}></CategorySelector>;
+            <CategorySelector category={category} setCategory={setCategory}></CategorySelector>
             <div className="row">
                 {genres.map((genre) => (
                     <GenreCard key={genre.id} genre={genre} category={category} />
