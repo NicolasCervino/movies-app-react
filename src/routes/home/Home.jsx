@@ -4,12 +4,12 @@ import MovieSwipers from "../../components/movieSwipers/MovieSwipers";
 import ShowSwipers from "../../components/showSwipers/ShowSwipers";
 
 const Home = () => {
-    const [category, setCategory] = useState("movies");
+    const [category, setCategory] = useState("movie");
 
     return (
         <>
             <CategorySelector category={category} setCategory={setCategory} />
-            {category === "movies" ? <MovieSwipers /> : <ShowSwipers />}
+            {category === "movie" ? <MovieSwipers /> : <ShowSwipers />}
         </>
     );
 };
