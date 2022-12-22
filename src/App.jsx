@@ -11,6 +11,7 @@ import MovieInfo from "./routes/movieInfo/MovieInfo";
 import ShowInfo from "./routes/showInfo/ShowInfo";
 import Shows from "./routes/shows/Shows";
 import Genres from "./routes/genres/Genres";
+import GenreInfo from "./routes/genreInfo/GenreInfo";
 
 function App() {
     return (
@@ -27,7 +28,7 @@ function App() {
                         <Route path="tv-show/:id" element={<ShowInfo />} />
                         <Route path="search" element={<h1>Hello World</h1>} />
                         <Route path="genres" element={<Genres />} />
-                        <Route path="genre/:genreName" element={<h1>Hello World</h1>} />
+                        <Route path="genre/:type/:genreName" element={<GenreInfo />} />
                     </Route>
                     <Route path="*" element={<Navigate replace to="/error" />} />
                     <Route path="error" element={<NotFound></NotFound>} />
