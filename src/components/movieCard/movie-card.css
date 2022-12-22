@@ -16,7 +16,8 @@
     opacity: 0.65;
 }
 
-.card:hover .btn {
+.card:hover .btn,
+.card:hover h4 {
     display: inline !important;
 }
 

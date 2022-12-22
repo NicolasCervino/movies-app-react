@@ -3,7 +3,7 @@ import "./movie-card.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const MovieCard = ({ element, type, genreName }) => {
+const MovieCard = ({ element, type, genreName, category }) => {
     const [loading, setLoading] = useState(true);
 
     const handleLoad = () => {
@@ -17,7 +17,7 @@ const MovieCard = ({ element, type, genreName }) => {
             case "shows":
                 return `/tv-show/${element.id}`;
             case "genre":
-                return `/genre/${genreName.replace(/\s+/g, "").toLowerCase()}`;
+                return `/genre/${category}/${genreName.replace(/\s+/g, "").toLowerCase()}`;
         }
         switch (type) {
             case "movies":
@@ -65,9 +65,7 @@ const MovieCard = ({ element, type, genreName }) => {
                     </div>
                 </Link>
                 {type === "genre" ? (
-                    <h1 className={"btn d-none position-absolute top-50 start-50 translate-middle rounded-circle text-white"}>
-                        {genreName}
-                    </h1>
+                    <h4 className={"d-none position-absolute top-50 start-50 translate-middle text-white"}>{genreName}</h4>
                 ) : (
                     <MovieCardButton element={element} type={type} />
                 )}
