@@ -17,7 +17,7 @@ const MovieCard = ({ element, type, genreName }) => {
             case "shows":
                 return `/tv-show/${element.id}`;
             case "genre":
-                return `/genre/${genreName.toLowerCase()}`;
+                return `/genre/${genreName.replace(/\s+/g, "").toLowerCase()}`;
         }
         switch (type) {
             case "movies":
