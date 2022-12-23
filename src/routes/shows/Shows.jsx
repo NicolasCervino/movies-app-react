@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Api from "../../service/api";
 import CategorySelector from "../../components/categorySelector/CategorySelector";
 import InfiniteCardScroll from "../../components/InfiniteScroll/InfiniteCardScroll";
+import { Outlet } from "react-router-dom";
 
 const Shows = () => {
     const [movies, setMovies] = useState([]);
@@ -60,6 +61,7 @@ const Shows = () => {
             <div className="row">
                 <InfiniteCardScroll elements={movies} setElements={setMovies} type={"tv"} category={category} totalPages={totalPages} />
             </div>
+            <Outlet />
         </>
     );
 };
