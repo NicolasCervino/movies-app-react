@@ -1,10 +1,11 @@
 import MovieCardButton from "./movieCardButton/MovieCardButton";
 import "./movie-card.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const MovieCard = ({ element, type, genreName, category }) => {
     const [loading, setLoading] = useState(true);
+    const location = useLocation();
 
     const handleLoad = () => {
         setLoading(false);
@@ -13,9 +14,9 @@ const MovieCard = ({ element, type, genreName, category }) => {
     const linkPath = () => {
         switch (type) {
             case "movie":
-                return `/movie/${element.id}`;
+                return `/movies/${element.id}`;
             case "tv":
-                return `/tv-show/${element.id}`;
+                return `/tv-shows/${element.id}`;
             case "genre":
                 return `/genre/${category}/${genreName.replace(/\s+/g, "").toLowerCase()}`;
         }
@@ -36,7 +37,7 @@ const MovieCard = ({ element, type, genreName, category }) => {
     return (
         <>
             <div className={"card movie-card position-relative"}>
-                <Link to={linkPath()} className="bg-dark">
+                <Link to={linkPath()} state={{ background: location }} className="bg-dark">
                     <img
                         onLoad={handleLoad}
                         src={
@@ -59,7 +60,7 @@ const MovieCard = ({ element, type, genreName, category }) => {
                 {type !== "genre" ? <MovieCardButton element={element} type={type} /> : ""}
             </div>
 
-            <Link className="titulo-card text-white" to={linkPath()}>
+            <Link className="titulo-card text-white" to={linkPath()} state={{ background: location }}>
                 {renderTitle()}
             </Link>
         </>
