@@ -1,4 +1,4 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CustomModal from "../../components/modal/CustomModal";
 import ModalContent from "../../components/modal/modalContent/ModalContent";
@@ -10,11 +10,17 @@ const ShowInfo = () => {
 
     const [show, setShow] = useState(true);
 
+    const location = useLocation();
+
     const navigate = useNavigate();
 
     const handleClose = () => {
         setShow(false);
-        navigate(-1);
+        if (location.state !== null) {
+            navigate(-1);
+        } else {
+            navigate("/tv-shows");
+        }
     };
 
     useEffect(() => {
