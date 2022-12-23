@@ -3,14 +3,14 @@ import { MyListContext } from "../../../context/ListContext";
 import { useContext, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const CarrouselItemButtons = ({ movie, type }) => {
     const { addElement, removeElement, elementOnList } = useContext(MyListContext);
 
     const [isShown, setIsShown] = useState(false);
 
-    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleRemove = () => {
         removeElement(movie, type);
@@ -18,10 +18,6 @@ const CarrouselItemButtons = ({ movie, type }) => {
 
     const handleAdd = () => {
         addElement(movie, type);
-    };
-
-    const handleInfo = () => {
-        type === "movie" ? navigate(`movie/${movie.id}`) : navigate(`tv-show/${movie.id}`);
     };
 
     return (
@@ -37,10 +33,15 @@ const CarrouselItemButtons = ({ movie, type }) => {
                     <span>Agregar a mi lista</span>
                 </button>
             )}
-
-            <button onClick={handleInfo}>
-                <span>Mas información</span>
-            </button>
+            {type === "movie" ? (
+                <Link to={`movies/${movie.id}`} state={{ background: location }}>
+                    <span>Mas información</span>
+                </Link>
+            ) : (
+                <Link to={`tv-shows/${movie.id}`} state={{ background: location }}>
+                    <span>Mas información</span>
+                </Link>
+            )}
         </div>
     );
 };
