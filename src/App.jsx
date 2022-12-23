@@ -1,4 +1,4 @@
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { MyListProvider } from "./context/ListContext";
 import Home from "./routes/home/Home";
 import "./App.css";
@@ -14,18 +14,26 @@ import Genres from "./routes/genres/Genres";
 import GenreInfo from "./routes/genreInfo/GenreInfo";
 
 function App() {
+    const location = useLocation();
+    const background = location.state && location.state.background;
+
     return (
         <div className="App">
             <MyListProvider>
-                <Routes>
+                <Routes location={background || location}>
                     <Route path="/" element={<Layout />}>
                         <Route index element={<Navigate replace to="home" />} />
                         <Route path="home" element={<Home />} />
                         <Route path="my-list" element={<MyList />} />
-                        <Route path="movies" element={<Movies />} />
-                        <Route path="movie/:id" element={<MovieInfo />} />
-                        <Route path="tv-shows" element={<Shows />} />
-                        <Route path="tv-show/:id" element={<ShowInfo />} />
+
+                        <Route path="movies" element={<Movies />}>
+                            <Route path=":id" element={<MovieInfo />} />
+                        </Route>
+
+                        <Route path="tv-shows" element={<Shows />}>
+                            <Route path=":id" element={<ShowInfo />} />
+                        </Route>
+
                         <Route path="search" element={<h1>Hello World</h1>} />
                         <Route path="genres" element={<Genres />} />
                         <Route path="genre/:type/:genreName" element={<GenreInfo />} />
@@ -33,6 +41,12 @@ function App() {
                     <Route path="*" element={<Navigate replace to="/error" />} />
                     <Route path="error" element={<NotFound></NotFound>} />
                 </Routes>
+                {background && (
+                    <Routes>
+                        <Route path="movies/:id" element={<MovieInfo />} />
+                        <Route path="tv-shows/:id" element={<ShowInfo />} />
+                    </Routes>
+                )}
             </MyListProvider>
         </div>
     );
