@@ -2,6 +2,7 @@ import { useState } from "react";
 import Api from "../../service/api";
 import MovieCard from "../movieCard/MovieCard";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { useLocation } from "react-router-dom";
 
 function InfiniteCardScroll({ elements, setElements, type, category, genreId, totalPages }) {
     const [page, setpage] = useState(2);
@@ -19,7 +20,7 @@ function InfiniteCardScroll({ elements, setElements, type, category, genreId, to
                 setpage(page + 1);
                 setElements(elements.concat(data.results));
             });
-        } else {
+        } else if (page > totalPages || page > 500) {
             sethasMore(false);
         }
     };
