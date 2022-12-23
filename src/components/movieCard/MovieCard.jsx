@@ -37,7 +37,7 @@ const MovieCard = ({ element, type, genreName, category }) => {
     return (
         <>
             <div className={"card movie-card position-relative"}>
-                <Link to={linkPath()} state={{ background: location }} className="bg-dark">
+                <Link to={linkPath()} state={type !== "genre" && { background: location }} className="bg-dark">
                     <img
                         onLoad={handleLoad}
                         src={
