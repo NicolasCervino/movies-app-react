@@ -3,7 +3,11 @@ import { useState, useEffect } from "react";
 import CarrouselItemButtons from "../carrouselItemButtons/CarrouselItemsButtons";
 
 const CarrouselItem = ({ movie, type }) => {
-    const [isMobile, setIsMobile] = useState(false);
+    const getWindowDimensions = () => {
+        return { width: window.innerWidth, height: window.innerHeight };
+    };
+
+    const [isMobile, setIsMobile] = useState(getWindowDimensions().width < 575);
 
     const handleResize = () => {
         if (window.innerWidth < 575) {
@@ -19,7 +23,7 @@ const CarrouselItem = ({ movie, type }) => {
         return () => {
             window.removeEventListener("resize", handleResize);
         };
-    });
+    }, []);
 
     return (
         <div
@@ -32,9 +36,11 @@ const CarrouselItem = ({ movie, type }) => {
         >
             <div className={`carousel-caption text-start ${!isMobile ? "w-50 px-2" : ""}`}>
                 <h2 className="titulo-carrousel">{type === "movie" ? movie.title : movie.name}</h2>
-                <p className="subtitulo-carrousel">
-                    {!isMobile ? movie.overview.slice(0, 300) + "..." : movie.overview.slice(0, 150) + "..."}
-                </p>
+                <div>
+                    <p className="subtitulo-carrousel">
+                        {!isMobile ? movie.overview.slice(0, 300) + "..." : movie.overview.slice(0, 150) + "..."}
+                    </p>
+                </div>
                 <CarrouselItemButtons movie={movie} type={type} />
             </div>
         </div>
