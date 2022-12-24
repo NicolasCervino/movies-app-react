@@ -1,0 +1,10 @@
+.scroll-to-top {
+    position: fixed;
+    bottom: 3%;
+    right: 5%;
+    transition: ease-in;
+    transition-duration: 500ms;
+}
+.scroll-to-top button {
+    border-radius: 50%;
+}

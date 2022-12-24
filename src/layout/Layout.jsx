@@ -2,6 +2,7 @@ import Navbar from "../components/navbar/NavBar";
 import FeaturedMovies from "../components/featuredMovies/FeaturedMovies";
 import { Outlet, useLocation } from "react-router-dom";
 import FeaturedShows from "../components/featuredShows/FeaturedShows";
+import ScrollToTop from "../components/scrollToTop/ScrollToTop";
 
 const Layout = () => {
     let location = useLocation();
@@ -16,6 +17,7 @@ const Layout = () => {
             </section>
             <main className="container">
                 <Outlet />
+                <ScrollToTop />
             </main>
         </>
     );
