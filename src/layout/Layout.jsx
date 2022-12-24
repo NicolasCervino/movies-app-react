@@ -12,9 +12,7 @@ const Layout = () => {
             <header className="container-fluid p-0">
                 <Navbar />
             </header>
-            <section className="container-fluid p-0">
-                {location.pathname.startsWith("/tv-show") ? <FeaturedShows /> : <FeaturedMovies />}
-            </section>
+            <section className="container-fluid p-0">{location.pathname.includes("/tv") ? <FeaturedShows /> : <FeaturedMovies />}</section>
             <main className="container">
                 <Outlet />
                 <ScrollToTop />
