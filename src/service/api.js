@@ -62,7 +62,7 @@ const getByCategory = async (category, type, page) => {
             });
 
         case "on_the_air":
-            return await getAiring(type, page).then((data) => data);
+            return await getAiring(page).then((data) => data);
 
         default:
             return await getPopular(type, page).then((data) => data);
