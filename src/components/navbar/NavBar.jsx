@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import "./style/navbar.css";
+import SearchBar from "../searchBar/SearchBar";
 
 const NavBar = () => {
     const [background, setBackground] = useState("transparent");
@@ -24,7 +25,7 @@ const NavBar = () => {
     return (
         <Navbar bg={background} variant="dark" expand="lg" onToggle={() => setBackground("dark")}>
             <Container>
-                <Link to="/home" className="navbar-brand logo">
+                <Link to="/home" className="navbar-brand logo p-0">
                     MoviesApp
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -43,6 +44,7 @@ const NavBar = () => {
                             Generos
                         </Link>
                     </Nav>
+                    <SearchBar />
                 </Navbar.Collapse>
             </Container>
         </Navbar>
