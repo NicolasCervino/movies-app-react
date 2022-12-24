@@ -1,7 +1,10 @@
 import MovieCast from "./MovieCast";
 import MovieTrailer from "./MovieTrailer";
+import { Link } from "react-router-dom";
 
 const ModalInfo = ({ element, type }) => {
+    const genres = element.genres?.map((g) => g.name);
+
     return (
         <>
             <div className="row">
@@ -32,7 +35,11 @@ const ModalInfo = ({ element, type }) => {
 
                         <span className="modal--info pe-2">
                             <span style={{ color: "#777" }}> Generos: </span>
-                            {element.genres[0]?.name}, {element.genres[1]?.name}, {element.genres[2]?.name}
+                            {genres.map((g, index) => (
+                                <Link to={`/genre/${type}/${g.replace(/\s+/g, "").toLowerCase()}`} key={g} className="genre-link">
+                                    {(index ? ", " : "") + g}
+                                </Link>
+                            ))}
                         </span>
 
                         <span className="modal--info pe-2">

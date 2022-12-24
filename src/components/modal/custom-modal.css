@@ -34,3 +34,12 @@
     border-radius: 50%;
     border: 1px solid #fff;
 }
+
+.genre-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.genre-link:hover {
+    color: var(--main-color);
+}
