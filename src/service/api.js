@@ -87,6 +87,15 @@ const getByGenre = async (type, genreId, page) => {
         .catch((error) => console.log(error));
 };
 
+const getSearch = async (type, query, page) => {
+    return await axios
+        .get(`https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&query=${query}&language=es-ARG&page=${page}`)
+        .then((response) => {
+            return response.data;
+        })
+        .catch((error) => console.log(error));
+};
+
 const Api = {
     getPopular,
     getData,
@@ -96,6 +105,7 @@ const Api = {
     getByCategory,
     getGenres,
     getByGenre,
+    getSearch,
 };
 
 export default Api;
