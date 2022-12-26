@@ -80,7 +80,7 @@ const getGenres = async (type) => {
 
 const getByGenre = async (type, genreId, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/discover/${type}?api_key=${apiKey}&language=es-MXG&with_genres=${genreId}&page=${page}`)
+        .get(`https://api.themoviedb.org/3/discover/${type}?api_key=${apiKey}&language=es-MX&with_genres=${genreId}&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -89,7 +89,7 @@ const getByGenre = async (type, genreId, page) => {
 
 const getSearch = async (type, query, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&query=${query}&language=es-MXG&page=${page}`)
+        .get(`https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&query=${query}&language=es-MX&page=${page}`)
         .then((response) => {
             return response.data;
         })
