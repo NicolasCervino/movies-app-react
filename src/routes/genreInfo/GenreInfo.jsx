@@ -45,8 +45,7 @@ const GenreInfo = () => {
                     <InfiniteCardScroll
                         elements={elements}
                         setElements={setElements}
-                        type={type}
-                        genreId={genreId}
+                        type={[type, "genre", genreId]}
                         totalPages={totalPages}
                     />
                 )}

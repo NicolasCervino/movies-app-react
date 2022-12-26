@@ -59,7 +59,12 @@ const Movies = () => {
                 </div>
             </div>
             <div className="row">
-                <InfiniteCardScroll elements={movies} setElements={setMovies} type={"movie"} category={category} totalPages={totalPages} />
+                <InfiniteCardScroll
+                    elements={movies}
+                    setElements={setMovies}
+                    type={["movie", "category", category]}
+                    totalPages={totalPages}
+                />
             </div>
             <Outlet />
         </>

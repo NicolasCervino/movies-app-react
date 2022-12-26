@@ -5,7 +5,7 @@ import InfiniteCardScroll from "../../components/InfiniteScroll/InfiniteCardScro
 import { Outlet } from "react-router-dom";
 
 const Shows = () => {
-    const [movies, setMovies] = useState([]);
+    const [shows, setShows] = useState([]);
     const [category, setCategory] = useState(window.location.hash.slice(1, window.location.hash.length) || "popular");
 
     const [options, setOptions] = useState([
@@ -21,20 +21,20 @@ const Shows = () => {
         switch (category) {
             case "popular":
                 Api.getPopular("tv").then((data) => {
-                    setMovies(data.results);
+                    setShows(data.results);
                     setTotalPages(data.total_pages);
                 });
                 break;
             case "top_rated":
                 Api.getTop("tv").then((data) => {
-                    setMovies(data.results);
+                    setShows(data.results);
                     setTotalPages(data.total_pages);
                 });
                 sortOptions(category);
                 break;
             case "on_the_air":
                 Api.getAiring().then((data) => {
-                    setMovies(data.results);
+                    setShows(data.results);
                     setTotalPages(data.total_pages);
                 });
                 sortOptions(category);
@@ -59,7 +59,7 @@ const Shows = () => {
                 </div>
             </div>
             <div className="row">
-                <InfiniteCardScroll elements={movies} setElements={setMovies} type={"tv"} category={category} totalPages={totalPages} />
+                <InfiniteCardScroll elements={shows} setElements={setShows} type={["tv", "category", category]} totalPages={totalPages} />
             </div>
             <Outlet />
         </>
