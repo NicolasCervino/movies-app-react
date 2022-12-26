@@ -12,6 +12,7 @@ import ShowInfo from "./routes/showInfo/ShowInfo";
 import Shows from "./routes/shows/Shows";
 import Genres from "./routes/genres/Genres";
 import GenreInfo from "./routes/genreInfo/GenreInfo";
+import Search from "./routes/search/Search";
 
 function App() {
     const location = useLocation();
@@ -34,7 +35,7 @@ function App() {
                             <Route path=":id" element={<ShowInfo />} />
                         </Route>
 
-                        <Route path="search" element={<h1>Hello World</h1>} />
+                        <Route path="search" element={<Search />} />
                         <Route path="genres" element={<Genres />} />
                         <Route path="genre/:type/:genreName" element={<GenreInfo />} />
                     </Route>
