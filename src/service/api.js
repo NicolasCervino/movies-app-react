@@ -4,7 +4,7 @@ const apiKey = "f3b242b5857fe6135b2f4c0420e0ba0b";
 
 const getPopular = async (type, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/${type}/popular?api_key=${apiKey}&language=es-AR&page=${page}`)
+        .get(`https://api.themoviedb.org/3/${type}/popular?api_key=${apiKey}&language=es-MX&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -13,7 +13,7 @@ const getPopular = async (type, page) => {
 
 const getData = async (movieId, type) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/${type}/${movieId}?api_key=${apiKey}&language=es-AR&append_to_response=credits,videos`)
+        .get(`https://api.themoviedb.org/3/${type}/${movieId}?api_key=${apiKey}&language=es-MX&append_to_response=credits,videos`)
         .then((response) => {
             return response;
         });
@@ -21,7 +21,7 @@ const getData = async (movieId, type) => {
 
 const getTop = async (type, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/${type}/top_rated?api_key=${apiKey}&language=es-AR&page=${page}`)
+        .get(`https://api.themoviedb.org/3/${type}/top_rated?api_key=${apiKey}&language=es-MX&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -31,7 +31,7 @@ const getTop = async (type, page) => {
 // Only works with Movies
 const getUpcoming = async (page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es-AR&page=${page}`)
+        .get(`https://api.themoviedb.org/3/movie/upcoming?api_key=${apiKey}&language=es-MX&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -41,7 +41,7 @@ const getUpcoming = async (page) => {
 // Only works with TV
 const getAiring = async (page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKey}&language=es-AR&page=${page}`)
+        .get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${apiKey}&language=es-MX&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -71,7 +71,7 @@ const getByCategory = async (category, type, page) => {
 
 const getGenres = async (type) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${apiKey}&language=es-AR`)
+        .get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${apiKey}&language=es-MX`)
         .then((response) => {
             return response.data;
         })
@@ -80,7 +80,7 @@ const getGenres = async (type) => {
 
 const getByGenre = async (type, genreId, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/discover/${type}?api_key=${apiKey}&language=es-ARG&with_genres=${genreId}&page=${page}`)
+        .get(`https://api.themoviedb.org/3/discover/${type}?api_key=${apiKey}&language=es-MXG&with_genres=${genreId}&page=${page}`)
         .then((response) => {
             return response.data;
         })
@@ -89,7 +89,7 @@ const getByGenre = async (type, genreId, page) => {
 
 const getSearch = async (type, query, page) => {
     return await axios
-        .get(`https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&query=${query}&language=es-ARG&page=${page}`)
+        .get(`https://api.themoviedb.org/3/search/${type}?api_key=${apiKey}&query=${query}&language=es-MXG&page=${page}`)
         .then((response) => {
             return response.data;
         })
