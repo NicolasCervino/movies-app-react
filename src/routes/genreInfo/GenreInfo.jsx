@@ -14,17 +14,24 @@ const GenreInfo = () => {
     const [options, setOptions] = useState([]);
 
     useEffect(() => {
+        //GET GENRE OPTIONS
         Api.getGenres(type).then((data) => {
-            const genres = data.genres.map((g) => ({ id: g.id, name: g.name.replace(/\s+/g, "").toLowerCase() }));
-            const id = genres.find((g) => g.name === genreName)?.id;
+            const id = data.genres
+                .map((g) => ({ id: g.id, name: g.name.replace(/\s+/g, "").toLowerCase() }))
+                .find((g) => g.name === genreName)?.id;
             setGenreId(id);
-            setOptions(
-                data.genres.map((g) => ({
+            setOptions(() => {
+                const genreOptions = data.genres.map((g) => ({
                     value: g.name.replace(/\s+/g, "").toLowerCase(),
                     label: g.name,
-                }))
-            );
+                }));
+                // Put current genre first
+                const current = [genreOptions.find((g) => g.value === genreName)];
+                current.push(...genreOptions.filter((g) => g.value !== genreName));
+                return current;
+            });
 
+            // GET GENRE ELEMENTS
             Api.getByGenre(type, id).then((data) => {
                 setTotalPages(data.total_pages);
                 setElements(data.results);
