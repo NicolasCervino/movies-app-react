@@ -44,7 +44,7 @@ const MovieInfo = () => {
 
     return (
         movie && (
-            <CustomModal show={show} handleClose={handleClose}>
+            <CustomModal show={show} handleClose={handleClose} size="lg">
                 <ModalContent element={movie} type={"movie"} handleClose={handleClose} />
             </CustomModal>
         )

@@ -44,7 +44,7 @@ const ShowInfo = () => {
 
     return (
         tvShow && (
-            <CustomModal show={show} handleClose={handleClose}>
+            <CustomModal show={show} handleClose={handleClose} size={"lg"}>
                 <ModalContent element={tvShow} type={"tv"} handleClose={handleClose} />
             </CustomModal>
         )
