@@ -43,3 +43,7 @@
 .genre-link:hover {
     color: var(--main-color);
 }
+
+.custom-modal-content {
+    border: none;
+}
