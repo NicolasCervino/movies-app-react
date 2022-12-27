@@ -1,14 +1,20 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import * as bootstrap from "bootstrap";
 import { BrowserRouter } from "react-router-dom";
+import { FirebaseAppProvider } from "reactfire";
+import firebaseConfig from "./firebase-config";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
     <React.StrictMode>
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
+        <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+            <Suspense>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </Suspense>
+        </FirebaseAppProvider>
     </React.StrictMode>
 );
