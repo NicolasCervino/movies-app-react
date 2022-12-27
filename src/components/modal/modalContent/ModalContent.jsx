@@ -1,8 +1,11 @@
 import ModalHeader from "./modalHeader/modalHeader";
 import ModalInfo from "./modalInfo/ModalInfo";
+import LoginModal from "./loginModal/LoginModal";
 
 const ModalContent = ({ element, type, handleClose }) => {
-    return (
+    return type === "login" ? (
+        <LoginModal />
+    ) : (
         <>
             <div className="container-fluid">
                 <ModalHeader element={element} handleClose={handleClose} />
