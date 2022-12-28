@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import "./login-modal.css";
+//import "./login-modal.css";
 import { Link } from "react-router-dom";
 
-function LoginModal({ email, setEmail, password, setPassword, submit }) {
+function RegisterModal({ email, setEmail, password, setPassword, submit }) {
     const [hidePassword, setHidePassword] = useState(true);
 
     const validateButton = () => {
@@ -16,9 +16,9 @@ function LoginModal({ email, setEmail, password, setPassword, submit }) {
             <div className="row">
                 <div className="col-12">
                     <h1 className="titulo-modal" style={{ fontFamily: "Bebas Neue, cursive" }}>
-                        Iniciar Sesion
+                        Registrarse
                     </h1>
-                    <p>Ingrese su email y contraseña!</p>
+                    <p>Ingrese su email y una contraseña!</p>
                 </div>
             </div>
 
@@ -26,11 +26,11 @@ function LoginModal({ email, setEmail, password, setPassword, submit }) {
                 <div className="col-12">
                     <div className="form-outline">
                         <input
-                            type="email"
+                            type="text"
                             id="inputUsername"
                             className="form-control form-control-sm"
                             defaultValue={email}
-                            placeholder={"Ingrese un email registrado"}
+                            placeholder={"Ingrese un correo valido"}
                             required
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -43,10 +43,10 @@ function LoginModal({ email, setEmail, password, setPassword, submit }) {
                             <input
                                 type={hidePassword ? "password" : "text"}
                                 className="password-input"
-                                defaultValue={password}
-                                placeholder={"6 caracteres como minimo"}
                                 onChange={(e) => setPassword(e.target.value)}
+                                defaultValue={password}
                                 minLength={6}
+                                placeholder={"6 caracteres como minimo"}
                                 required
                             />
                             {hidePassword ? (
@@ -55,12 +55,12 @@ function LoginModal({ email, setEmail, password, setPassword, submit }) {
                                 <FontAwesomeIcon icon={faEyeSlash} onClick={() => setHidePassword(!hidePassword)} />
                             )}
                         </div>
-                        <label className="form-label unselectable">Password</label>
+                        <label className="form-label unselectable">Contraseña</label>
                     </div>
                 </div>
                 <div className="col-12">
-                    <button type="submit" className="login-button btn btn-sm px-4" disabled={validateButton()}>
-                        INICIAR SESIÓN
+                    <button type="submit" className={"login-button btn btn-sm px-4"} disabled={validateButton()}>
+                        REGRISTRARSE
                     </button>
                 </div>
             </form>
@@ -68,9 +68,9 @@ function LoginModal({ email, setEmail, password, setPassword, submit }) {
             <div className="row mt-2">
                 <div className="col-12">
                     <p className="subtitulo-registro mb-0">
-                        No tienes una cuenta?{" "}
-                        <Link to={"/home/register"} className="text-white-50 fw-bold">
-                            Regístrate
+                        Ya tienes una cuenta?{" "}
+                        <Link to={"/home/login"} className="text-white-50 fw-bold">
+                            Iniciar Sesion
                         </Link>
                     </p>
                 </div>
@@ -79,4 +79,4 @@ function LoginModal({ email, setEmail, password, setPassword, submit }) {
     );
 }
 
-export default LoginModal;
+export default RegisterModal;
