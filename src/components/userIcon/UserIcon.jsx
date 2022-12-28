@@ -1,12 +1,14 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./user-icon.css";
 
 function UserIcon() {
+    const location = useLocation();
+
     return (
-        <div class="ms-md-1">
-            <Link to="/home/login" className="btn btn-user btn-light">
+        <div className="ms-md-1">
+            <Link to="/home/login" state={{ background: location }} className="btn btn-user btn-light">
                 <FontAwesomeIcon icon={faUser} style={{ color: "#fff" }} />
             </Link>
         </div>
