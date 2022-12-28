@@ -1,15 +1,10 @@
 import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import RegisterForm from "./registerForm/RegisterForm";
 
 function RegisterModal({ email, setEmail, password, setPassword, submit, errorCode }) {
-    const [hidePassword, setHidePassword] = useState(true);
+    // const [hidePassword, setHidePassword] = useState(true);
     const [errorMessage, setErrorMesage] = useState("");
-
-    const validateButton = () => {
-        return email.trim() === "" || password.trim() === "" || password.length < 6 || errorMessage !== "";
-    };
 
     useEffect(() => {
         const handleError = (code) => {
@@ -39,63 +34,15 @@ function RegisterModal({ email, setEmail, password, setPassword, submit, errorCo
                     <p>Ingrese su email y una contraseña!</p>
                 </div>
             </div>
-
-            <form className="row" onSubmit={submit}>
-                <div className="col-12">
-                    <div className="form-outline">
-                        <input
-                            type="text"
-                            id="inputUsername"
-                            className="form-control form-control-sm"
-                            defaultValue={email}
-                            placeholder={"Ingrese un correo valido"}
-                            required
-                            onChange={(e) => {
-                                setErrorMesage("");
-                                setEmail(e.target.value);
-                            }}
-                        />
-                        <label className="form-label unselectable">Email</label>
-                    </div>
-                </div>
-                <div className="col-12">
-                    <div className="form-outline">
-                        <div className="d-flex align-items-center form-control form-control-sm">
-                            <input
-                                type={hidePassword ? "password" : "text"}
-                                className="password-input"
-                                onChange={(e) => {
-                                    setErrorMesage("");
-                                    setPassword(e.target.value);
-                                }}
-                                defaultValue={password}
-                                minLength={6}
-                                placeholder={"6 caracteres como minimo"}
-                                required
-                            />
-                            {hidePassword ? (
-                                <FontAwesomeIcon
-                                    icon={faEye}
-                                    style={{ cursor: "pointer" }}
-                                    onClick={() => setHidePassword(!hidePassword)}
-                                />
-                            ) : (
-                                <FontAwesomeIcon
-                                    icon={faEyeSlash}
-                                    style={{ cursor: "pointer" }}
-                                    onClick={() => setHidePassword(!hidePassword)}
-                                />
-                            )}
-                        </div>
-                        <label className="form-label unselectable">Contraseña</label>
-                    </div>
-                </div>
-                <div className="col-12">
-                    <button type="submit" className={"login-button btn btn-sm px-4"} disabled={validateButton()}>
-                        REGRISTRARSE
-                    </button>
-                </div>
-            </form>
+            <RegisterForm
+                submit={submit}
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                errorMessage={errorMessage}
+                setErrorMesage={setErrorMesage}
+            />
 
             {errorCode && (
                 <div className="row">
