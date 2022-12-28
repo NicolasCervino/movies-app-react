@@ -13,3 +13,7 @@
 .login-button:hover {
     border: 1px solid var(--main-color);
 }
+
+.error-message {
+    color: var(--main-color);
+}
