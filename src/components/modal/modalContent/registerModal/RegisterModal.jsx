@@ -1,15 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-//import "./login-modal.css";
 import { Link } from "react-router-dom";
 
-function RegisterModal({ email, setEmail, password, setPassword, submit }) {
+function RegisterModal({ email, setEmail, password, setPassword, submit, errorCode }) {
     const [hidePassword, setHidePassword] = useState(true);
+    const [errorMessage, setErrorMesage] = useState("");
 
     const validateButton = () => {
-        return email.trim() === "" || password.trim() === "" || password.length < 6;
+        return email.trim() === "" || password.trim() === "" || password.length < 6 || errorMessage !== "";
     };
+
+    useEffect(() => {
+        const handleError = (code) => {
+            switch (code) {
+                case "auth/email-already-in-use":
+                    setErrorMesage("El email ingresado ya se encuentra en uso");
+                    break;
+                case "auth/invalid-email":
+                    setErrorMesage("El email ingresado no es valido");
+                    break;
+
+                case "auth/weak-password":
+                    setErrorMesage("La contraseña debe tener al menos 6 caracteres");
+                    break;
+            }
+        };
+        handleError(errorCode);
+    }, [errorCode]);
 
     return (
         <div className="container p-4">
@@ -32,7 +50,10 @@ function RegisterModal({ email, setEmail, password, setPassword, submit }) {
                             defaultValue={email}
                             placeholder={"Ingrese un correo valido"}
                             required
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => {
+                                setErrorMesage("");
+                                setEmail(e.target.value);
+                            }}
                         />
                         <label className="form-label unselectable">Email</label>
                     </div>
@@ -43,16 +64,27 @@ function RegisterModal({ email, setEmail, password, setPassword, submit }) {
                             <input
                                 type={hidePassword ? "password" : "text"}
                                 className="password-input"
-                                onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => {
+                                    setErrorMesage("");
+                                    setPassword(e.target.value);
+                                }}
                                 defaultValue={password}
                                 minLength={6}
                                 placeholder={"6 caracteres como minimo"}
                                 required
                             />
                             {hidePassword ? (
-                                <FontAwesomeIcon icon={faEye} onClick={() => setHidePassword(!hidePassword)} />
+                                <FontAwesomeIcon
+                                    icon={faEye}
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => setHidePassword(!hidePassword)}
+                                />
                             ) : (
-                                <FontAwesomeIcon icon={faEyeSlash} onClick={() => setHidePassword(!hidePassword)} />
+                                <FontAwesomeIcon
+                                    icon={faEyeSlash}
+                                    style={{ cursor: "pointer" }}
+                                    onClick={() => setHidePassword(!hidePassword)}
+                                />
                             )}
                         </div>
                         <label className="form-label unselectable">Contraseña</label>
@@ -64,6 +96,12 @@ function RegisterModal({ email, setEmail, password, setPassword, submit }) {
                     </button>
                 </div>
             </form>
+
+            {errorCode && (
+                <div className="row">
+                    <p className="error-message m-0 mt-2 ">{errorMessage}</p>
+                </div>
+            )}
 
             <div className="row mt-2">
                 <div className="col-12">

@@ -13,6 +13,7 @@ const ModalContent = ({ element, type, register, login, handleClose }) => {
                         password={login.password}
                         setPassword={login.setPassword}
                         submit={login.submit}
+                        errorCode={login.errorCode}
                     />
                 );
             case "register":
@@ -23,6 +24,7 @@ const ModalContent = ({ element, type, register, login, handleClose }) => {
                         password={register.password}
                         setPassword={register.setPassword}
                         submit={register.submit}
+                        errorCode={register.errorCode}
                     />
                 );
             case "movie":
