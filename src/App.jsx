@@ -16,6 +16,8 @@ import GenreInfo from "./routes/genreInfo/GenreInfo";
 import Search from "./routes/search/Search";
 import Login from "./routes/login/Login";
 import Register from "./routes/register/Register";
+import ProtectedRoute from "./routes/protectedRoute/ProtectedRoute";
+import Profile from "./routes/profile/Profile";
 
 function App() {
     const location = useLocation();
@@ -31,6 +33,14 @@ function App() {
                             <Route path="home" element={<Home />}>
                                 <Route path="login" element={<Login />} />
                                 <Route path="register" element={<Register />} />
+                                <Route
+                                    path="profile"
+                                    element={
+                                        <ProtectedRoute>
+                                            <Profile />
+                                        </ProtectedRoute>
+                                    }
+                                />
                             </Route>
                             <Route path="my-list" element={<MyList />} />
 
