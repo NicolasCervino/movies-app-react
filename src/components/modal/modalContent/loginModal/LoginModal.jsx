@@ -1,15 +1,22 @@
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 import "./login-modal.css";
 import { Link } from "react-router-dom";
+import LoginForm from "./loginForm/LoginForm";
 
-function LoginModal({ email, setEmail, password, setPassword, submit }) {
-    const [hidePassword, setHidePassword] = useState(true);
+function LoginModal({ email, setEmail, password, setPassword, submit, errorCode }) {
+    const [errorMessage, setErrorMesage] = useState("");
 
-    const validateButton = () => {
-        return email.trim() === "" || password.trim() === "" || password.length < 6;
-    };
+    useEffect(() => {
+        const handleError = (code) => {
+            if (code === "auth/user-not-found" || "auth/wrong-password") {
+                setErrorMesage("Email o contraseña incorrectos");
+            }
+            if (code === "auth/invalid-email") {
+                setErrorMesage("Email invalido");
+            }
+        };
+        handleError(errorCode);
+    }, [errorCode]);
 
     return (
         <div className="container p-4">
@@ -21,49 +28,13 @@ function LoginModal({ email, setEmail, password, setPassword, submit }) {
                     <p>Ingrese su email y contraseña!</p>
                 </div>
             </div>
+            <LoginForm submit={submit} email={email} setEmail={setEmail} password={password} setPassword={setPassword} />
 
-            <form className="row" onSubmit={submit}>
-                <div className="col-12">
-                    <div className="form-outline">
-                        <input
-                            type="email"
-                            id="inputUsername"
-                            className="form-control form-control-sm"
-                            defaultValue={email}
-                            placeholder={"Ingrese un email registrado"}
-                            required
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                        <label className="form-label unselectable">Email</label>
-                    </div>
+            {errorCode && (
+                <div className="row">
+                    <p className="error-message m-0 mt-2 ">{errorMessage}</p>
                 </div>
-                <div className="col-12">
-                    <div className="form-outline">
-                        <div className="d-flex align-items-center form-control form-control-sm">
-                            <input
-                                type={hidePassword ? "password" : "text"}
-                                className="password-input"
-                                defaultValue={password}
-                                placeholder={"6 caracteres como minimo"}
-                                onChange={(e) => setPassword(e.target.value)}
-                                minLength={6}
-                                required
-                            />
-                            {hidePassword ? (
-                                <FontAwesomeIcon icon={faEye} onClick={() => setHidePassword(!hidePassword)} />
-                            ) : (
-                                <FontAwesomeIcon icon={faEyeSlash} onClick={() => setHidePassword(!hidePassword)} />
-                            )}
-                        </div>
-                        <label className="form-label unselectable">Password</label>
-                    </div>
-                </div>
-                <div className="col-12">
-                    <button type="submit" className="login-button btn btn-sm px-4" disabled={validateButton()}>
-                        INICIAR SESIÓN
-                    </button>
-                </div>
-            </form>
+            )}
 
             <div className="row mt-2">
                 <div className="col-12">
