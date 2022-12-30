@@ -36,7 +36,7 @@ function App() {
                                 <Route
                                     path="profile"
                                     element={
-                                        <ProtectedRoute>
+                                        <ProtectedRoute redirect={"/home/login"}>
                                             <Profile />
                                         </ProtectedRoute>
                                     }
@@ -56,8 +56,8 @@ function App() {
                             <Route path="genres" element={<Genres />} />
                             <Route path="genre/:type/:genreName" element={<GenreInfo />} />
                         </Route>
-                        <Route path="*" element={<Navigate replace to="/error" />} />
-                        <Route path="error" element={<NotFound></NotFound>} />
+                        {/* <Route path="*" element={<Navigate replace to="/error" />} />
+                        <Route path="error" element={<NotFound></NotFound>} /> */}
                     </Routes>
                     {background && (
                         <Routes>
@@ -65,6 +65,14 @@ function App() {
                             <Route path="tv-shows/:id" element={<ShowInfo />} />
                             <Route path="home/login" element={<Login />} />
                             <Route path="home/register" element={<Register />} />
+                            <Route
+                                path="home/profile"
+                                element={
+                                    <ProtectedRoute redirect={"/home/login"}>
+                                        <Profile />
+                                    </ProtectedRoute>
+                                }
+                            />
                         </Routes>
                     )}
                 </MyListProvider>
