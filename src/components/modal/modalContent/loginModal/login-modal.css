@@ -17,3 +17,19 @@
 .error-message {
     color: var(--main-color);
 }
+
+.brand-login {
+    background-color: #fff;
+}
+
+.login--google:hover {
+    background-color: #4285f4;
+}
+
+.login--facebook:hover {
+    background-color: #3a5795;
+}
+
+.login--twitter:hover {
+    background-color: #55acee;
+}
