@@ -1,0 +1,15 @@
+.btn-logout {
+    background: var(--main-color);
+    box-shadow: 0px 3px 10px var(--main-color);
+    border: 2px solid var(--main-color);
+    color: #fff;
+}
+
+.btn-logout:hover {
+    box-shadow: none;
+    border: 2px solid var(--main-color);
+}
+
+.user-icon {
+    font-size: 8.5rem;
+}

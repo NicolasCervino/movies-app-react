@@ -1,6 +1,7 @@
 import MovieModal from "./movieModal/MovieModal";
 import LoginModal from "./loginModal/LoginModal";
 import RegisterModal from "./registerModal/RegisterModal";
+import ProfileModal from "./profileModal/ProfileModal";
 
 const ModalContent = ({ element, type, register, login, handleClose }) => {
     const renderContent = () => {
@@ -27,6 +28,8 @@ const ModalContent = ({ element, type, register, login, handleClose }) => {
                         errorCode={register.errorCode}
                     />
                 );
+            case "profile":
+                return <ProfileModal />;
             case "movie":
                 return <MovieModal element={element} type={type} handleClose={handleClose} />;
             default:
