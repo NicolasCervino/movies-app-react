@@ -24,14 +24,14 @@ const NavBar = () => {
     };
 
     return (
-        <Navbar bg={background} variant="dark" expand="lg" onToggle={() => setBackground("dark")}>
+        <Navbar bg={background} variant="dark" expand="lg" onToggle={() => setBackground("dark")} className="py-3">
             <Container>
                 <Link to="/home" className="navbar-brand logo p-0">
                     MoviesApp
                 </Link>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
+                    <Nav className="me-auto text-center">
                         <Link to="/my-list" className="nav-link">
                             Mi Lista
                         </Link>
@@ -45,8 +45,10 @@ const NavBar = () => {
                             Generos
                         </Link>
                     </Nav>
-                    <SearchBar />
-                    <UserIcon />
+                    <div className="d-flex align-items-center justify-content-center flex-row">
+                        <SearchBar />
+                        <UserIcon />
+                    </div>
                 </Navbar.Collapse>
             </Container>
         </Navbar>
