@@ -1,11 +1,13 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import {
     createUserWithEmailAndPassword,
+    FacebookAuthProvider,
     GoogleAuthProvider,
     onAuthStateChanged,
     signInWithEmailAndPassword,
     signInWithPopup,
     signOut,
+    TwitterAuthProvider,
 } from "firebase/auth";
 import { auth } from "../firebase-config";
 
@@ -44,9 +46,23 @@ export const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider);
     };
 
+    const loginWithFacebook = () => {
+        const facebookProvider = new FacebookAuthProvider();
+        return signInWithPopup(auth, facebookProvider);
+    };
+
+    const loginWithTwitter = () => {
+        const twitterProvider = new TwitterAuthProvider();
+        return signInWithPopup(auth, twitterProvider);
+    };
+
     const logout = () => {
         return signOut(auth);
     };
 
-    return <AuthContext.Provider value={{ signup, login, logout, user, loading, loginWithGoogle }}>{children}</AuthContext.Provider>;
+    return (
+        <AuthContext.Provider value={{ signup, login, logout, user, loading, loginWithGoogle, loginWithFacebook, loginWithTwitter }}>
+            {children}
+        </AuthContext.Provider>
+    );
 };
