@@ -8,7 +8,7 @@ function UserIcon() {
 
     return (
         <div className="ms-md-1">
-            <Link to="/home/login" state={{ background: location }} className="btn btn-user btn-light">
+            <Link to="/home/profile" state={{ background: location }} className="btn btn-user btn-light">
                 <FontAwesomeIcon icon={faUser} style={{ color: "#fff" }} />
             </Link>
         </div>
