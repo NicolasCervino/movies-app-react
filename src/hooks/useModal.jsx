@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
-const useModal = () => {
+const useModal = (navigatePath) => {
     const [show, setShow] = useState(true);
 
     const location = useLocation();
@@ -12,7 +12,7 @@ const useModal = () => {
         if (location.state !== null) {
             navigate(-1);
         } else {
-            navigate("/home");
+            navigate(navigatePath);
         }
     }
 
