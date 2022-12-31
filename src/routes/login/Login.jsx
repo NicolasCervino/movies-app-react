@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomModal from "../../components/modal/CustomModal";
-import ModalContent from "../../components/modal/modalContent/ModalContent";
+import LoginModal from "../../components/modal/modalContent/loginModal/LoginModal";
 import { useAuth } from "../../context/AuthContext";
 import useModal from "../../hooks/useModal";
 
@@ -55,17 +55,13 @@ function Login() {
 
     return (
         <CustomModal show={show} handleClose={handleClose} size={"md"}>
-            <ModalContent
-                type={"login"}
-                login={{
-                    email: email,
-                    setEmail: setEmail,
-                    password: password,
-                    setPassword: setPassword,
-                    submit: { email: submit, google: handleGoogleLogin, facebook: handleFacebookLogin, twitter: handleTwitterLogin },
-                    errorCode: error,
-                }}
-                handleClose={handleClose}
+            <LoginModal
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                submit={{ email: submit, google: handleGoogleLogin, facebook: handleFacebookLogin, twitter: handleTwitterLogin }}
+                errorCode={error}
             />
         </CustomModal>
     );

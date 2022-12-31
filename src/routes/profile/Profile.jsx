@@ -1,5 +1,5 @@
 import CustomModal from "../../components/modal/CustomModal";
-import ModalContent from "../../components/modal/modalContent/ModalContent";
+import ProfileModal from "../../components/modal/modalContent/profileModal/ProfileModal";
 import useModal from "../../hooks/useModal";
 
 function Profile() {
@@ -7,7 +7,7 @@ function Profile() {
 
     return (
         <CustomModal show={show} handleClose={handleClose} size={"md"}>
-            <ModalContent type={"profile"} handleClose={handleClose} />
+            <ProfileModal />
         </CustomModal>
     );
 }

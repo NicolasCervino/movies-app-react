@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CustomModal from "../../components/modal/CustomModal";
-import ModalContent from "../../components/modal/modalContent/ModalContent";
+import RegisterModal from "../../components/modal/modalContent/registerModal/RegisterModal";
 import { useAuth } from "../../context/AuthContext";
 import useModal from "../../hooks/useModal";
 
@@ -28,17 +28,13 @@ function Register() {
 
     return (
         <CustomModal show={show} handleClose={handleClose} size={"md"}>
-            <ModalContent
-                type={"register"}
-                register={{
-                    email: email,
-                    setEmail: setEmail,
-                    password: password,
-                    setPassword: setPassword,
-                    submit: submit,
-                    errorCode: error,
-                }}
-                handleClose={handleClose}
+            <RegisterModal
+                email={email}
+                setEmail={setEmail}
+                password={password}
+                setPassword={setPassword}
+                submit={submit}
+                errorCode={error}
             />
         </CustomModal>
     );

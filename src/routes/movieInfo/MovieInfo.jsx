@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CustomModal from "../../components/modal/CustomModal";
-import ModalContent from "../../components/modal/modalContent/ModalContent";
+import MovieModal from "../../components/modal/modalContent/movieModal/MovieModal";
 import Api from "../../service/api";
 import useModal from "../../hooks/useModal";
 
@@ -35,7 +35,7 @@ const MovieInfo = () => {
     return (
         movie && (
             <CustomModal show={show} handleClose={handleClose} size="lg">
-                <ModalContent element={movie} type={"movie"} handleClose={handleClose} />
+                <MovieModal element={movie} type={"movie"} handleClose={handleClose} />
             </CustomModal>
         )
     );
