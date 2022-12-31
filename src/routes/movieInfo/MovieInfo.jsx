@@ -1,25 +1,15 @@
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CustomModal from "../../components/modal/CustomModal";
 import ModalContent from "../../components/modal/modalContent/ModalContent";
 import Api from "../../service/api";
+import useModal from "../../hooks/useModal";
 
 const MovieInfo = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
 
-    const [show, setShow] = useState(true);
-
-    const location = useLocation();
-
-    const handleClose = () => {
-        setShow(false);
-        if (location.state !== null) {
-            navigate(-1);
-        } else {
-            navigate("/movies");
-        }
-    };
+    const [show, handleClose] = useModal("/movies");
 
     const navigate = useNavigate();
 

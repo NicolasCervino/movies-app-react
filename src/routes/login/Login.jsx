@@ -1,19 +1,18 @@
-import { async } from "@firebase/util";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import CustomModal from "../../components/modal/CustomModal";
 import ModalContent from "../../components/modal/modalContent/ModalContent";
 import { useAuth } from "../../context/AuthContext";
+import useModal from "../../hooks/useModal";
 
 function Login() {
-    const [show, setShow] = useState(true);
+    const [show, handleClose] = useModal("/home");
     const { login, loginWithGoogle, loginWithFacebook, loginWithTwitter } = useAuth();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
 
-    const location = useLocation();
     const navigate = useNavigate();
 
     const submit = async (e) => {
@@ -51,15 +50,6 @@ function Login() {
             navigate("/home");
         } catch (error) {
             console.log(error);
-        }
-    };
-
-    const handleClose = () => {
-        setShow(false);
-        if (location.state !== null) {
-            navigate(-1);
-        } else {
-            navigate("/home");
         }
     };
 
