@@ -38,7 +38,15 @@ function LoginModal({ email, setEmail, password, setPassword, submit, errorCode 
 
             <div className="row mt-2">
                 <div className="col-12">
-                    <p className="subtitulo-registro mb-0">
+                    <p className="mb-0">
+                        Olvidaste tu contraseña?{" "}
+                        <Link to={"/home/reset-password"} className="text-white-50 fw-bold">
+                            Restablecer contraseña
+                        </Link>
+                    </p>
+                </div>
+                <div className="col-12">
+                    <p className="mb-0">
                         No tienes una cuenta?{" "}
                         <Link to={"/home/register"} className="text-white-50 fw-bold">
                             Regístrate
