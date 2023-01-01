@@ -18,6 +18,7 @@ import Login from "./routes/login/Login";
 import Register from "./routes/register/Register";
 import ProtectedRoute from "./routes/protectedRoute/ProtectedRoute";
 import Profile from "./routes/profile/Profile";
+import ResetPassword from "./routes/resetPassword/ResetPassword";
 
 function App() {
     const location = useLocation();
@@ -41,6 +42,7 @@ function App() {
                                         </ProtectedRoute>
                                     }
                                 />
+                                <Route path="reset-password" element={<ResetPassword />} />
                             </Route>
                             <Route path="my-list" element={<MyList />} />
 
@@ -56,8 +58,8 @@ function App() {
                             <Route path="genres" element={<Genres />} />
                             <Route path="genre/:type/:genreName" element={<GenreInfo />} />
                         </Route>
-                        {/* <Route path="*" element={<Navigate replace to="/error" />} />
-                        <Route path="error" element={<NotFound></NotFound>} /> */}
+                        <Route path="*" element={<Navigate replace to="/error" />} />
+                        <Route path="error" element={<NotFound></NotFound>} />
                     </Routes>
                     {background && (
                         <Routes>
