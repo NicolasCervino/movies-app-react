@@ -1,29 +1,9 @@
 import "./carrousel-item.css";
-import { useState, useEffect } from "react";
 import CarrouselItemButtons from "../carrouselItemButtons/CarrouselItemsButtons";
+import useWindowDimensions from "../../../hooks/useWindowDimensions";
 
 const CarrouselItem = ({ movie, type }) => {
-    const getWindowDimensions = () => {
-        return { width: window.innerWidth, height: window.innerHeight };
-    };
-
-    const [isMobile, setIsMobile] = useState(getWindowDimensions().width < 575);
-
-    const handleResize = () => {
-        if (window.innerWidth < 575) {
-            setIsMobile(true);
-        } else {
-            setIsMobile(false);
-        }
-    };
-
-    useEffect(() => {
-        window.addEventListener("resize", handleResize);
-
-        return () => {
-            window.removeEventListener("resize", handleResize);
-        };
-    }, []);
+    const [isMobile] = useWindowDimensions();
 
     return (
         <div
