@@ -20,15 +20,19 @@ const MovieSwiper = ({ elements, type, category }) => {
             breakpoints={{
                 "@0.00": {
                     slidesPerView: 2,
+                    slidesPerGroup: 2,
                 },
                 "@0.75": {
                     slidesPerView: 2,
+                    slidesPerGroup: 2,
                 },
                 "@1.00": {
                     slidesPerView: 4,
+                    slidesPerGroup: 4,
                 },
                 "@1.50": {
                     slidesPerView: 5,
+                    slidesPerGroup: 5,
                 },
             }}
         >
