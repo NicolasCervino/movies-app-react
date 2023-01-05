@@ -1,19 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, createContext, useContext } from "react";
+import { useDb } from "../hooks/useDb";
+import { useAuth } from "./AuthContext";
+import { useSweetAlert } from "../hooks/useSweetAlert";
 
-export const MyListContext = React.createContext();
+export const MyListContext = createContext();
+
+export const useMyList = () => {
+    const context = useContext(MyListContext);
+    if (!context) throw new Error("There is no list provider");
+    return context;
+};
 
 export const MyListProvider = ({ children }) => {
     const [moviesList, setMoviesList] = useState([]);
     const [showsList, setShowsList] = useState([]);
 
-    useEffect(() => {
-        // if (localStorage.getItem("movies-list")) {
-        //     setMoviesList(JSON.parse(localStorage.getItem("movies-list")));
-        // }
-        // if (localStorage.getItem("shows-list")) {
-        //     setShowsList(JSON.parse(localStorage.getItem("shows-list")));
-        // }
-    }, []);
+    const { showAlert } = useSweetAlert();
+
+    const { user } = useAuth();
+    const { addMovieToDB, removeMovieFromDb } = useDb(setMoviesList, setShowsList);
 
     const movieOnList = (movie) => {
         return moviesList.find((m) => m.id === movie.id) !== undefined;
@@ -23,27 +28,43 @@ export const MyListProvider = ({ children }) => {
         return showsList.find((s) => s.id === show.id) !== undefined;
     };
 
-    const addMovie = (movie) => {
-        if (!movieOnList(movie)) {
-            setMoviesList((prevState) => [...prevState, movie]);
+    const addMovie = async (movie) => {
+        if (!movieOnList(movie) && user !== null) {
+            addMovieToDB(movie, "movie");
+            showAlert(`Se agrego ${movie.title} a la lista`, "success");
+        } else {
+            showAlert("Debe Iniciar Sesion para poder agregar peliculas", "warning");
         }
     };
 
     const removeMovie = (movie) => {
-        setMoviesList((prevState) => [...prevState.filter((m) => m.id !== movie.id)]);
+        if (user !== null) {
+            removeMovieFromDb(movie, "movie");
+            showAlert(`Se elimino ${movie.title} a la lista`, "error");
+        } else {
+            showAlert("Debe Iniciar Sesion para poder eliminar peliculas", "warning");
+        }
     };
 
     const addShow = (show) => {
-        if (!showOnList(show)) {
-            setShowsList((prevState) => [...prevState, show]);
+        if (!showOnList(show) && user !== null) {
+            addMovieToDB(show, "tv");
+            showAlert(`Se agrego ${show.name} a la lista`, "success");
+        } else {
+            showAlert("Debe Iniciar Sesion para poder agregar series", "warning");
         }
     };
 
     const removeShow = (show) => {
-        setShowsList((prevState) => [...prevState.filter((s) => s.id !== show.id)]);
+        if (user !== null) {
+            removeMovieFromDb(show, "tv");
+            showAlert(`Se elimino ${show.name} a la lista`, "error");
+        } else {
+            showAlert("Debe Iniciar Sesion para poder eliminar series", "warning");
+        }
     };
 
-    const addElement = (element, type) => {
+    const addElement = async (element, type) => {
         switch (type) {
             case "movie":
                 addMovie(element);
