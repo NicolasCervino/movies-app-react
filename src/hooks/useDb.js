@@ -10,8 +10,18 @@ export const useDb = (setMoviesList, setShowsList) => {
         if (user !== null) {
             const q = query(collection(db, "users", user.uid, "userList"));
             const unsub = onSnapshot(q, (querySnapshot) => {
-                setMoviesList(querySnapshot.docs.map((doc) => doc.data()).filter((e) => e.type === "movie"));
-                setShowsList(querySnapshot.docs.map((doc) => doc.data()).filter((e) => e.type === "tv"));
+                setMoviesList(
+                    querySnapshot.docs
+                        .map((doc) => doc.data())
+                        .filter((e) => e.type === "movie")
+                        .map((m) => m.element)
+                );
+                setShowsList(
+                    querySnapshot.docs
+                        .map((doc) => doc.data())
+                        .filter((e) => e.type === "tv")
+                        .map((s) => s.element)
+                );
             });
 
             return () => {
