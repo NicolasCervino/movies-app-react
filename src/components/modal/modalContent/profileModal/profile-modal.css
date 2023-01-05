@@ -13,3 +13,8 @@
 .user-icon {
     font-size: 8.5rem;
 }
+
+.user-img {
+    border: 1px solid;
+    border-radius: 50%;
+}
