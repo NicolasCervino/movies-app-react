@@ -24,7 +24,7 @@ function ProfileModal() {
             </div>
             <div className="row">
                 <div className="col-12 d-flex justify-content-center py-4">
-                    {user.photoURL ? (
+                    {user && user.photoURL ? (
                         <img src={user.photoURL} className="user-img"></img>
                     ) : (
                         <FontAwesomeIcon icon={faUserCircle} className="user-icon" />
