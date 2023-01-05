@@ -3,11 +3,13 @@ import { useNavigate } from "react-router-dom";
 import CustomModal from "../../components/modal/CustomModal";
 import LoginModal from "../../components/modal/modalContent/loginModal/LoginModal";
 import { useAuth } from "../../context/AuthContext";
+import { useDb } from "../../hooks/useDb";
 import useModal from "../../hooks/useModal";
 
 function Login() {
     const [show, handleClose] = useModal("/home");
     const { login, loginWithGoogle, loginWithFacebook, loginWithTwitter } = useAuth();
+    const { addUser } = useDb();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -28,7 +30,9 @@ function Login() {
 
     const handleGoogleLogin = async () => {
         try {
-            await loginWithGoogle();
+            loginWithGoogle().then((data) => {
+                addUser(data.user);
+            });
             navigate("/home");
         } catch (error) {
             console.log(error);
@@ -37,7 +41,9 @@ function Login() {
 
     const handleFacebookLogin = async () => {
         try {
-            await loginWithFacebook();
+            loginWithFacebook().then((data) => {
+                addUser(data.user);
+            });
             navigate("/home");
         } catch (error) {
             console.log(error);
@@ -46,7 +52,9 @@ function Login() {
 
     const handleTwitterLogin = async () => {
         try {
-            await loginWithTwitter();
+            loginWithTwitter().then((data) => {
+                addUser(data.user);
+            });
             navigate("/home");
         } catch (error) {
             console.log(error);
