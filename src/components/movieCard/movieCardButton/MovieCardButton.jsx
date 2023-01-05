@@ -1,10 +1,9 @@
-import { MyListContext } from "../../../context/ListContext";
-import { useContext } from "react";
+import { useMyList } from "../../../context/ListContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 const MovieCardButton = ({ element, type }) => {
-    const { addElement, removeElement, elementOnList } = useContext(MyListContext);
+    const { addElement, removeElement, elementOnList } = useMyList();
 
     const handleAdd = () => {
         addElement(element, type);

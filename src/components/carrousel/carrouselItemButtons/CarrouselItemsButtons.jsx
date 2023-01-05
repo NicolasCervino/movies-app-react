@@ -1,12 +1,12 @@
 import "./carrousel-items-buttons.css";
-import { MyListContext } from "../../../context/ListContext";
-import { useContext, useState } from "react";
+import { useMyList } from "../../../context/ListContext";
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faPlus, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Link, useLocation } from "react-router-dom";
 
 const CarrouselItemButtons = ({ movie, type }) => {
-    const { addElement, removeElement, elementOnList } = useContext(MyListContext);
+    const { addElement, removeElement, elementOnList } = useMyList();
 
     const [isShown, setIsShown] = useState(false);
 
