@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import MovieCard from "../movieCard/MovieCard";
 import SeeMoreSlide from "./seeMoreSlide/SeeMoreSlide";
 
-const MovieSwiper = ({ elements, type, category }) => {
+const MovieSwiper = ({ elements, type, category, bigList, wide }) => {
     return (
         <Swiper
             modules={[Navigation, Mousewheel]}
@@ -26,14 +26,24 @@ const MovieSwiper = ({ elements, type, category }) => {
                     slidesPerView: 2,
                     slidesPerGroup: 2,
                 },
-                "@1.00": {
-                    slidesPerView: 4,
-                    slidesPerGroup: 4,
-                },
-                "@1.50": {
-                    slidesPerView: 5,
-                    slidesPerGroup: 5,
-                },
+                "@1.00": wide
+                    ? {
+                          slidesPerView: 3,
+                          slidesPerGroup: 3,
+                      }
+                    : {
+                          slidesPerView: 4,
+                          slidesPerGroup: 4,
+                      },
+                "@1.50": wide
+                    ? {
+                          slidesPerView: 4,
+                          slidesPerGroup: 4,
+                      }
+                    : {
+                          slidesPerView: 5,
+                          slidesPerGroup: 5,
+                      },
             }}
         >
             {!elements ? (
@@ -44,11 +54,11 @@ const MovieSwiper = ({ elements, type, category }) => {
                 <>
                     {elements.map((m) => (
                         <SwiperSlide className="h-auto" key={m.id}>
-                            <MovieCard element={m} type={type} />
+                            <MovieCard element={m} type={type} wide={wide} />
                         </SwiperSlide>
                     ))}
                     <SwiperSlide className="d-flex align-items-center h-auto">
-                        <SeeMoreSlide type={type} category={category} />
+                        <SeeMoreSlide type={type} category={category} bigList={bigList} />
                     </SwiperSlide>
                 </>
             )}
