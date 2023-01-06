@@ -1,12 +1,16 @@
 import "./category-selector.css";
 
-const CategorySelector = ({ category, setCategory }) => {
+const CategorySelector = ({ category, setCategory, search }) => {
     const handleSetMovies = () => {
         setCategory("movie");
     };
 
     const handleSetShows = () => {
         setCategory("tv");
+    };
+
+    const handleSetActors = () => {
+        setCategory("person");
     };
 
     return (
@@ -17,6 +21,11 @@ const CategorySelector = ({ category, setCategory }) => {
             <a className={`category-selector--link ${category === "tv" ? "active-category" : ""}`} onClick={handleSetShows}>
                 <h3>Series</h3>
             </a>
+            {search && (
+                <a className={`category-selector--link ${category === "person" ? "active-category" : ""}`} onClick={handleSetActors}>
+                    <h3>Actores</h3>
+                </a>
+            )}
         </div>
     );
 };
