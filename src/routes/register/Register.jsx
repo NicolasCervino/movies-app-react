@@ -9,7 +9,7 @@ import useModal from "../../hooks/useModal";
 function Register() {
     const [show, handleClose] = useModal("/home");
     const { signup } = useAuth();
-    const [addUser] = useDb();
+    const { addUser } = useDb();
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
