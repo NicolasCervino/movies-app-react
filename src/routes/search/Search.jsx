@@ -5,11 +5,11 @@ import InfiniteCardScroll from "../../components/InfiniteScroll/InfiniteCardScro
 import CategorySelector from "../home/categorySelector/CategorySelector";
 
 const Search = () => {
-    const [searchParams] = useSearchParams();
+    const [searchParams, setSearchParams] = useSearchParams();
     const [query, setQuery] = useState(searchParams.get("q"));
     const [elements, setElements] = useState([]);
     const [totalPages, setTotalPages] = useState(0);
-    const [category, setCategory] = useState("movie");
+    const [category, setCategory] = useState(searchParams.get("type"));
 
     useEffect(() => {
         setQuery(searchParams.get("q"));
@@ -20,6 +20,10 @@ const Search = () => {
             });
         }
     }, [searchParams.get("q"), query, category]);
+
+    useEffect(() => {
+        setSearchParams({ type: category, q: encodeURI(query) });
+    }, [category]);
 
     return (
         <div className="row">
