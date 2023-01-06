@@ -44,7 +44,14 @@ function App() {
                                 />
                                 <Route path="reset-password" element={<ResetPassword />} />
                             </Route>
-                            <Route path="my-list" element={<MyList />} />
+                            <Route
+                                path="my-list"
+                                element={
+                                    <ProtectedRoute redirect={"/home/login"}>
+                                        <MyList />
+                                    </ProtectedRoute>
+                                }
+                            />
 
                             <Route path="movies" element={<Movies />}>
                                 <Route path=":id" element={<MovieInfo />} />
