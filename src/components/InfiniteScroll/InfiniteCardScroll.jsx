@@ -2,6 +2,7 @@ import { useState } from "react";
 import Api from "../../service/api";
 import MovieCard from "../movieCard/MovieCard";
 import InfiniteScroll from "react-infinite-scroll-component";
+import ActorCard from "../actorCard/ActorCard";
 
 function InfiniteCardScroll({ elements, setElements, type, totalPages }) {
     const [page, setpage] = useState(2);
@@ -51,7 +52,7 @@ function InfiniteCardScroll({ elements, setElements, type, totalPages }) {
         >
             {elements.map((e) => (
                 <div className="col-6 col-sm-3 col-xl-2 p-2" key={e.id}>
-                    <MovieCard element={e} type={type[0]} />
+                    {type[0] === "person" ? <ActorCard person={e} /> : <MovieCard element={e} type={type[0]} />}
                 </div>
             ))}
         </InfiniteScroll>
