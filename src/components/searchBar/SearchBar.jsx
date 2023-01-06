@@ -12,7 +12,7 @@ const SearchBar = () => {
         if (e.key === "Enter" && searchQuery.trim() !== "") {
             navigate({
                 pathname: "search",
-                search: `?${createSearchParams({ q: encodeURI(searchQuery) })}`,
+                search: `?${createSearchParams({ type: "movie", q: encodeURI(searchQuery) })}`,
             });
         }
     };
