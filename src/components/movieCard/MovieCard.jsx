@@ -3,7 +3,7 @@ import "./movie-card.css";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-const MovieCard = ({ element, type, genreName, category }) => {
+const MovieCard = ({ element, type, genreName, category, wide }) => {
     const [loading, setLoading] = useState(true);
     const location = useLocation();
 
@@ -41,7 +41,7 @@ const MovieCard = ({ element, type, genreName, category }) => {
                     <img
                         onLoad={handleLoad}
                         src={
-                            type === "genre"
+                            wide
                                 ? `https://image.tmdb.org/t/p/w500/${element.backdrop_path}`
                                 : `https://image.tmdb.org/t/p/w500/${element.poster_path}`
                         }
