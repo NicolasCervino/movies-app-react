@@ -27,12 +27,20 @@ const ShowSwipers = () => {
             .catch((error) => console.log(error));
     }, []);
 
+    const handleShowsList = () => {
+        if (showsList.length >= 10) {
+            return showsList.slice(0, 10);
+        } else {
+            return showsList;
+        }
+    };
+
     return (
         <div className="row px-2">
             {user && showsList.length > 0 && (
                 <div className="col-12 justify-content-center p-2">
                     <h3 className="text-white text-uppercase">Series en Mi lista:</h3>
-                    <MovieSwiper elements={showsList} type="tv"></MovieSwiper>
+                    <MovieSwiper elements={handleShowsList()} type="tv" wide={true} bigList={showsList.length >= 10}></MovieSwiper>
                 </div>
             )}
             <div className="col-12 justify-content-center p-2">
