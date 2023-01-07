@@ -2,7 +2,6 @@ import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { MyListProvider } from "./context/ListContext";
 import { AuthProvider } from "./context/AuthContext";
 import Home from "./routes/home/Home";
-import "./App.css";
 import "./assets/scss/main.css";
 import Layout from "./layout/Layout";
 import MyList from "./routes/myList/MyList";

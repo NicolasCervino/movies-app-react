@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import "./style/navbar.css";
+import "./navbar.css";
 import SearchBar from "../searchBar/SearchBar";
 import UserIcon from "../userIcon/UserIcon";
 
