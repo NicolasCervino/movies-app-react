@@ -1,21 +1,47 @@
 import MovieCast from "./MovieCast";
 import MovieTrailer from "./MovieTrailer";
 import { Link } from "react-router-dom";
+import { useMyList } from "../../../../../context/ListContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 const ModalInfo = ({ element, type }) => {
     const genres = element.genres?.map((g) => g.name);
+    const { addElement, removeElement, elementOnList } = useMyList();
+
+    const handleAdd = () => {
+        addElement(element, type);
+    };
+
+    const handleRemove = () => {
+        removeElement(element, type);
+    };
 
     return (
         <>
             <div className="row">
                 {/* Movie/Show Title */}
                 <div className="col-12">
-                    <h3>{type === "movie" ? element.title : element.name}</h3>
+                    <h3 className="m-0">{type === "movie" ? element.title : element.name}</h3>
+                    <p style={{ color: "#777" }}>{type === "movie" ? element.original_title : element.original_name}</p>
                 </div>
 
                 <div className="col-12 col-lg-8">
                     {/* Movie/Show Data */}
-                    <div className="d-flex gap-2 flex-wrap">
+                    <div className="col-12 my-2">
+                        <button className="btn btn-add-to-list w-100" onClick={elementOnList(element, type) ? handleRemove : handleAdd}>
+                            {elementOnList(element, type) ? (
+                                <>
+                                    <FontAwesomeIcon icon={faCheck} /> En mi lista
+                                </>
+                            ) : (
+                                <>
+                                    <FontAwesomeIcon icon={faPlus} /> Agregar a mi lista
+                                </>
+                            )}
+                        </button>
+                    </div>
+                    <div className="col-12 pb-3 d-flex gap-2 ">
                         <span className="modal--info pe-2">
                             <span style={{ color: "#777" }}> Dirección: </span>
                             {element.director}
