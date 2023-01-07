@@ -2,12 +2,15 @@ import React from "react";
 
 const MovieCast = ({ element }) => {
     return (
-        <div className="col-12 col-sm-4 px-2">
+        <div className="col-12 col-lg-4 px-2">
             <span style={{ color: "#777" }}> Elenco: </span>
             <ul className="px-3">
-                <li>{element.credits.cast[0] ? element.credits.cast[0].name : "no hay datos"}</li>
-                <li>{element.credits.cast[1] ? element.credits.cast[1].name : "no hay datos"}</li>
-                <li>{element.credits.cast[2] ? element.credits.cast[2].name : "no hay datos"}</li>
+                {element.credits.cast.slice(0, 3).map((a) => (
+                    <li key={a.id}>
+                        <span>{a.name}: </span>
+                        <span style={{ color: "var(--main-color)" }}>{a.character}</span>
+                    </li>
+                ))}
             </ul>
         </div>
     );
