@@ -43,8 +43,17 @@ const ModalInfo = ({ element, type }) => {
                     </div>
                     <div className="col-12 pb-3 d-flex gap-2 ">
                         <span className="modal--info pe-2">
-                            <span style={{ color: "#777" }}> Dirección: </span>
-                            {element.director}
+                            {element.director ? (
+                                <>
+                                    <span style={{ color: "#777" }}> Dirección: </span>
+                                    {element.director}
+                                </>
+                            ) : (
+                                <>
+                                    <span style={{ color: "#777" }}> Creado por: </span>
+                                    {element.creator}
+                                </>
+                            )}
                         </span>
 
                         {type === "movie" ? (
