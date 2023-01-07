@@ -16,9 +16,10 @@ const ShowInfo = () => {
     useEffect(() => {
         const addShowInfo = (data) => {
             let show = data;
-            let director = data.credits.crew.find((crewMember) => crewMember.known_for_department == "Directing");
+            let director = data.credits.crew.find((crewMember) => crewMember.job == "Series Director");
             director = director?.name || null;
             show.director = director;
+            show.creator = data.created_by[0]?.name || null;
             return show;
         };
 
