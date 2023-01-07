@@ -19,6 +19,7 @@ import Register from "./routes/register/Register";
 import ProtectedRoute from "./routes/protectedRoute/ProtectedRoute";
 import Profile from "./routes/profile/Profile";
 import ResetPassword from "./routes/resetPassword/ResetPassword";
+import NotLoggedIn from "./routes/protectedRoute/NotLoggedIn";
 
 function App() {
     const location = useLocation();
@@ -32,8 +33,22 @@ function App() {
                         <Route path="/" element={<Layout />}>
                             <Route index element={<Navigate replace to="home" />} />
                             <Route path="home" element={<Home />}>
-                                <Route path="login" element={<Login />} />
-                                <Route path="register" element={<Register />} />
+                                <Route
+                                    path="login"
+                                    element={
+                                        <NotLoggedIn>
+                                            <Login />
+                                        </NotLoggedIn>
+                                    }
+                                />
+                                <Route
+                                    path="register"
+                                    element={
+                                        <NotLoggedIn>
+                                            <Register />
+                                        </NotLoggedIn>
+                                    }
+                                />
                                 <Route
                                     path="profile"
                                     element={
@@ -72,8 +87,22 @@ function App() {
                         <Routes>
                             <Route path="movies/:id" element={<MovieInfo />} />
                             <Route path="tv-shows/:id" element={<ShowInfo />} />
-                            <Route path="home/login" element={<Login />} />
-                            <Route path="home/register" element={<Register />} />
+                            <Route
+                                path="home/login"
+                                element={
+                                    <NotLoggedIn>
+                                        <Login />
+                                    </NotLoggedIn>
+                                }
+                            />
+                            <Route
+                                path="home/register"
+                                element={
+                                    <NotLoggedIn>
+                                        <Register />
+                                    </NotLoggedIn>
+                                }
+                            />
                             <Route
                                 path="home/profile"
                                 element={
