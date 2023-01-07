@@ -47,3 +47,13 @@
 .custom-modal-content {
     border: none;
 }
+
+.btn-add-to-list {
+    color: #fff;
+    border: 1px solid var(--main-color);
+}
+
+.btn-add-to-list:hover {
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+}
