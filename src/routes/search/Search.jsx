@@ -19,10 +19,11 @@ const Search = () => {
                 setElements(data.results);
             });
         }
-    }, [searchParams.get("q"), query, category]);
+        setCategory(searchParams.get("type"));
+    }, [searchParams]);
 
     useEffect(() => {
-        setSearchParams({ type: category, q: encodeURI(query) });
+        setSearchParams({ type: category, q: query });
     }, [category]);
 
     return (
