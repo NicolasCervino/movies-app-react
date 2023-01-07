@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, useEffect, createContext, useContext } from "react";
 import { useDb } from "../hooks/useDb";
 import { useAuth } from "./AuthContext";
 import { useSweetAlert } from "../hooks/useSweetAlert";
@@ -18,6 +18,14 @@ export const MyListProvider = ({ children }) => {
     const { showAlert } = useSweetAlert();
 
     const { user } = useAuth();
+
+    useEffect(() => {
+        if (!user) {
+            setMoviesList([]);
+            setShowsList([]);
+        }
+    }, [user]);
+
     const { addMovieToDB, removeMovieFromDb } = useDb(setMoviesList, setShowsList);
 
     const movieOnList = (movie) => {
