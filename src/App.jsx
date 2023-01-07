@@ -57,7 +57,14 @@ function App() {
                                         </ProtectedRoute>
                                     }
                                 />
-                                <Route path="reset-password" element={<ResetPassword />} />
+                                <Route
+                                    path="reset-password"
+                                    element={
+                                        <NotLoggedIn>
+                                            <ResetPassword />
+                                        </NotLoggedIn>
+                                    }
+                                />
                             </Route>
                             <Route
                                 path="my-list"
