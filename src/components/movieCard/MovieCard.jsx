@@ -37,9 +37,9 @@ const MovieCard = ({ element, type, genreName, category, wide }) => {
 
     const renderImage = () => {
         if (wide && element.backdrop_path !== null) {
-            return `https://image.tmdb.org/t/p/w500/${element.backdrop_path}`;
+            return `https://image.tmdb.org/t/p/w500${element.backdrop_path}`;
         } else if (!wide && element.poster_path !== null) {
-            return `https://image.tmdb.org/t/p/w500/${element.poster_path}`;
+            return `https://image.tmdb.org/t/p/w500${element.poster_path}`;
         } else {
             return "https://via.placeholder.com/500x750?text=No+Image+Available";
         }
