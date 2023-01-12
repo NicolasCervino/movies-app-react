@@ -4,10 +4,13 @@ import { Link } from "react-router-dom";
 import { useMyList } from "../../../../../context/ListContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
+import useWindowDimensions from "../../../../../hooks/useWindowDimensions";
 
 const ModalInfo = ({ element, type }) => {
     const genres = element.genres?.map((g) => g.name);
     const { addElement, removeElement, elementOnList } = useMyList();
+
+    const [isMobile] = useWindowDimensions();
 
     const handleAdd = () => {
         addElement(element, type);
@@ -41,7 +44,7 @@ const ModalInfo = ({ element, type }) => {
                             )}
                         </button>
                     </div>
-                    <div className="col-12 pb-3 d-flex gap-2 ">
+                    <div className={`col-12 pb-3 d-flex gap-2 ${isMobile ? "flex-wrap" : ""}`}>
                         <span className="modal--info pe-2">
                             {element.director ? (
                                 <>
