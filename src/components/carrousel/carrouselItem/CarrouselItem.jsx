@@ -10,8 +10,8 @@ const CarrouselItem = ({ movie, type }) => {
             className="main-slide"
             style={
                 isMobile
-                    ? { backgroundImage: `url(https://image.tmdb.org/t/p/w500/${movie.poster_path})` }
-                    : { backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie.backdrop_path})` }
+                    ? { backgroundImage: `url(https://image.tmdb.org/t/p/w500${movie.poster_path})` }
+                    : { backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})` }
             }
         >
             <div className={`carousel-caption text-start ${!isMobile ? "w-50 px-2" : ""}`}>
