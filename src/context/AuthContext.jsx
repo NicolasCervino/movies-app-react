@@ -4,6 +4,7 @@ import {
     FacebookAuthProvider,
     GoogleAuthProvider,
     onAuthStateChanged,
+    sendEmailVerification,
     sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signInWithPopup,
@@ -65,9 +66,24 @@ export const AuthProvider = ({ children }) => {
         return sendPasswordResetEmail(auth, email);
     };
 
+    const sendVerificationEmail = (user) => {
+        return sendEmailVerification(user);
+    };
+
     return (
         <AuthContext.Provider
-            value={{ signup, login, logout, user, loading, loginWithGoogle, loginWithFacebook, loginWithTwitter, resetPassword }}
+            value={{
+                signup,
+                login,
+                logout,
+                user,
+                loading,
+                loginWithGoogle,
+                loginWithFacebook,
+                loginWithTwitter,
+                resetPassword,
+                sendVerificationEmail,
+            }}
         >
             {children}
         </AuthContext.Provider>

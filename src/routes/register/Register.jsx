@@ -8,7 +8,7 @@ import useModal from "../../hooks/useModal";
 
 function Register() {
     const [show, handleClose] = useModal("/home");
-    const { signup } = useAuth();
+    const { signup, sendVerificationEmail } = useAuth();
     const { addUser } = useDb();
 
     const [email, setEmail] = useState("");
@@ -23,6 +23,7 @@ function Register() {
         try {
             signup(email, password).then((data) => {
                 addUser(data.user);
+                sendVerificationEmail(data.user);
             });
             navigate("/home");
         } catch (error) {
