@@ -70,12 +70,9 @@ const getByCategory = async (category, type, page) => {
 };
 
 const getGenres = async (type) => {
-    return await axios
-        .get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${apiKey}&language=es-MX`)
-        .then((response) => {
-            return response.data;
-        })
-        .catch((error) => console.log(error));
+    return await axios.get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${apiKey}&language=es-MX`).then((response) => {
+        return response.data;
+    });
 };
 
 const getByGenre = async (type, genreId, page) => {
