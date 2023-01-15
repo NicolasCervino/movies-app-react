@@ -4,6 +4,7 @@ import CustomModal from "../../components/modal/CustomModal";
 import MovieModal from "../../components/modal/modalContent/movieModal/MovieModal";
 import Api from "../../service/api";
 import useModal from "../../hooks/useModal";
+import { Helmet } from "react-helmet";
 
 const ShowInfo = () => {
     const { id } = useParams();
@@ -35,9 +36,14 @@ const ShowInfo = () => {
 
     return (
         tvShow && (
-            <CustomModal show={show} handleClose={handleClose} size={"lg"}>
-                <MovieModal element={tvShow} type={"tv"} handleClose={handleClose} />
-            </CustomModal>
+            <>
+                <Helmet>
+                    <title>{`MoviesApp | ${tvShow.name}`}</title>
+                </Helmet>
+                <CustomModal show={show} handleClose={handleClose} size={"lg"}>
+                    <MovieModal element={tvShow} type={"tv"} handleClose={handleClose} />
+                </CustomModal>
+            </>
         )
     );
 };

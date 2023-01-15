@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import CustomModal from "../../components/modal/CustomModal";
 import LoginModal from "../../components/modal/modalContent/loginModal/LoginModal";
@@ -62,16 +63,21 @@ function Login() {
     };
 
     return (
-        <CustomModal show={show} handleClose={handleClose} size={"md"}>
-            <LoginModal
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                submit={{ email: submit, google: handleGoogleLogin, facebook: handleFacebookLogin, twitter: handleTwitterLogin }}
-                errorCode={error}
-            />
-        </CustomModal>
+        <>
+            <Helmet>
+                <title>MoviesApp | Login</title>
+            </Helmet>
+            <CustomModal show={show} handleClose={handleClose} size={"md"}>
+                <LoginModal
+                    email={email}
+                    setEmail={setEmail}
+                    password={password}
+                    setPassword={setPassword}
+                    submit={{ email: submit, google: handleGoogleLogin, facebook: handleFacebookLogin, twitter: handleTwitterLogin }}
+                    errorCode={error}
+                />
+            </CustomModal>
+        </>
     );
 }
 

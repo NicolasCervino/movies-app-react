@@ -2,6 +2,7 @@ import { useMyList } from "../../context/ListContext";
 import CategorySelector from "../home/categorySelector/CategorySelector";
 import { useState } from "react";
 import MyListElements from "./myListElements/MyListElements";
+import { Helmet } from "react-helmet";
 
 const MyList = () => {
     const { moviesList, showsList } = useMyList();
@@ -9,6 +10,9 @@ const MyList = () => {
 
     return (
         <>
+            <Helmet>
+                <title>MoviesApp | Mi Lista</title>
+            </Helmet>
             <CategorySelector category={category} setCategory={setCategory} />
             <div className="row text-white">
                 {category === "movie" ? (

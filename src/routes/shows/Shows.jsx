@@ -3,6 +3,7 @@ import Api from "../../service/api";
 import CategorySelector from "../../components/categorySelector/CategorySelector";
 import InfiniteCardScroll from "../../components/InfiniteScroll/InfiniteCardScroll";
 import { Outlet } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Shows = () => {
     const [shows, setShows] = useState([]);
@@ -53,6 +54,9 @@ const Shows = () => {
 
     return (
         <>
+            <Helmet>
+                <title>MoviesApp | Series</title>
+            </Helmet>
             <div className="row">
                 <div className="col-12 category-selector py-3 px-2 justify-content-center justify-content-sm-start">
                     <CategorySelector options={options} category={category} setCategory={setCategory} />

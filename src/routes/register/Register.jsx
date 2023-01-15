@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 import { useNavigate } from "react-router-dom";
 import CustomModal from "../../components/modal/CustomModal";
 import RegisterModal from "../../components/modal/modalContent/registerModal/RegisterModal";
@@ -32,16 +33,21 @@ function Register() {
     };
 
     return (
-        <CustomModal show={show} handleClose={handleClose} size={"md"}>
-            <RegisterModal
-                email={email}
-                setEmail={setEmail}
-                password={password}
-                setPassword={setPassword}
-                submit={submit}
-                errorCode={error}
-            />
-        </CustomModal>
+        <>
+            <Helmet>
+                <title>MoviesApp | Register</title>
+            </Helmet>
+            <CustomModal show={show} handleClose={handleClose} size={"md"}>
+                <RegisterModal
+                    email={email}
+                    setEmail={setEmail}
+                    password={password}
+                    setPassword={setPassword}
+                    submit={submit}
+                    errorCode={error}
+                />
+            </CustomModal>
+        </>
     );
 }
 

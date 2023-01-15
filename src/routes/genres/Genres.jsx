@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import Api from "../../service/api";
 import CategorySelector from "../home/categorySelector/CategorySelector";
 import GenreCard from "./genreCards/GenreCard";
@@ -15,6 +16,9 @@ const Genres = () => {
 
     return (
         <>
+            <Helmet>
+                <title>MoviesApp | Genres</title>
+            </Helmet>
             <CategorySelector category={category} setCategory={setCategory}></CategorySelector>
             <div className="row">
                 {genres.map((genre) => (
