@@ -18,7 +18,7 @@ const MovieCardButton = ({ element, type }) => {
             <button
                 className={"btn d-none position-absolute top-50 start-50 translate-middle rounded-circle text-white"}
                 onClick={elementOnList(element, type) ? handleRemove : handleAdd}
-                style={{ background: "#141619cf", zIndex: 999 }}
+                style={{ background: "#141619cf" }}
             >
                 {elementOnList(element, type) ? <FontAwesomeIcon icon={faCheck} /> : <FontAwesomeIcon icon={faPlus} />}
             </button>
