@@ -1,0 +1,2 @@
+# MoviesApp
+El proyecto esta hecho con React utilizando Vite. Se trata de un sitio de peliculas que utiliza la API de TheMovieDB. Permite ver informacion sobre peliculas y series, realizar busquedas y loguearse/registrarse con email o cuenta de Google para agregar peliculas o series a una lista. Los usuarios y la lista de peliculas se almacenan en Firebase y el proyecto se desplego utilizando Vercel.![MoviesApp](https://user-images.githubusercontent.com/99894603/212813168-a9551f36-0085-4f74-94c9-fddb61ec808e.jpg)
