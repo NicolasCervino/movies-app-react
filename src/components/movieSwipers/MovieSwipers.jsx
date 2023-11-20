@@ -11,7 +11,7 @@ const MovieSwipers = () => {
     const { moviesList } = useMyList();
 
     useEffect(() => {
-        Api.getPopular("movie")
+        Api.getPopular("movie", 1)
             .then((data) => {
                 setPopularMovies(data.results);
             })
@@ -19,7 +19,7 @@ const MovieSwipers = () => {
     }, []);
 
     useEffect(() => {
-        Api.getTop("movie")
+        Api.getTop("movie", 1)
             .then((data) => {
                 setTopMovies(data.results);
             })

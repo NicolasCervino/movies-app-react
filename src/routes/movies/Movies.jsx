@@ -21,20 +21,20 @@ const Movies = () => {
     useEffect(() => {
         switch (category) {
             case "popular":
-                Api.getPopular("movie").then((data) => {
+                Api.getPopular("movie", 1).then((data) => {
                     setMovies(data.results);
                     setTotalPages(data.total_pages);
                 });
                 break;
             case "top_rated":
-                Api.getTop("movie").then((data) => {
+                Api.getTop("movie", 1).then((data) => {
                     setMovies(data.results);
                     setTotalPages(data.total_pages);
                 });
                 sortOptions(category);
                 break;
             case "upcoming":
-                Api.getUpcoming().then((data) => {
+                Api.getUpcoming(1).then((data) => {
                     setMovies(data.results);
                     setTotalPages(data.total_pages);
                 });

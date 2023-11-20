@@ -21,20 +21,20 @@ const Shows = () => {
     useEffect(() => {
         switch (category) {
             case "popular":
-                Api.getPopular("tv").then((data) => {
+                Api.getPopular("tv", 1).then((data) => {
                     setShows(data.results);
                     setTotalPages(data.total_pages);
                 });
                 break;
             case "top_rated":
-                Api.getTop("tv").then((data) => {
+                Api.getTop("tv", 1).then((data) => {
                     setShows(data.results);
                     setTotalPages(data.total_pages);
                 });
                 sortOptions(category);
                 break;
             case "on_the_air":
-                Api.getAiring().then((data) => {
+                Api.getAiring(1).then((data) => {
                     setShows(data.results);
                     setTotalPages(data.total_pages);
                 });

@@ -11,7 +11,7 @@ const useRandomPage = (category, type) => {
     };
 
     useEffect(() => {
-        Api.getByCategory(category, type)
+        Api.getByCategory(category, type, 1)
             .then((data) => {
                 // Page cant be bigger than 500
                 setPage(getRandomInt(1, Math.min(data.total_pages, 500)));

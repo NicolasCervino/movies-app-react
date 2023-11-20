@@ -12,7 +12,7 @@ const ShowSwipers = () => {
     const { showsList } = useMyList();
 
     useEffect(() => {
-        Api.getPopular("tv")
+        Api.getPopular("tv", 1)
             .then((data) => {
                 setShows(data.results);
             })
@@ -20,7 +20,7 @@ const ShowSwipers = () => {
     }, []);
 
     useEffect(() => {
-        Api.getTop("tv")
+        Api.getTop("tv", 1)
             .then((data) => {
                 setTopShows(data.results);
             })
