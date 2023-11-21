@@ -2,17 +2,19 @@ import { useState, useEffect } from "react";
 import "./login-modal.css";
 import { Link } from "react-router-dom";
 import LoginForm from "./loginForm/LoginForm";
+import { useTranslation } from "react-i18next";
 
 function LoginModal({ email, setEmail, password, setPassword, submit, errorCode }) {
     const [errorMessage, setErrorMesage] = useState("");
+    const [t, i18n] = useTranslation("global")
 
     useEffect(() => {
         const handleError = (code) => {
             if (code === "auth/user-not-found" || "auth/wrong-password") {
-                setErrorMesage("Email o contraseña incorrectos");
+                setErrorMesage(t("login.error-message-1"));
             }
             if (code === "auth/invalid-email") {
-                setErrorMesage("Email invalido");
+                setErrorMesage(t("login.error-message-2"));
             }
         };
         handleError(errorCode);
@@ -23,9 +25,9 @@ function LoginModal({ email, setEmail, password, setPassword, submit, errorCode 
             <div className="row">
                 <div className="col-12">
                     <h1 className="titulo-modal" style={{ fontFamily: "Bebas Neue, cursive" }}>
-                        Iniciar Sesion
+                        {t("login.title")}
                     </h1>
-                    <p>Ingrese su email y contraseña!</p>
+                    <p>{t("login.description")}</p>
                 </div>
             </div>
             <LoginForm submit={submit} email={email} setEmail={setEmail} password={password} setPassword={setPassword} />
@@ -39,17 +41,17 @@ function LoginModal({ email, setEmail, password, setPassword, submit, errorCode 
             <div className="row mt-2">
                 <div className="col-12">
                     <p className="mb-0">
-                        Olvidaste tu contraseña?{" "}
+                        {t("login.forgot-password")}
                         <Link to={"/home/reset-password"} className="text-white-50 fw-bold">
-                            Restablecer contraseña
+                            {t("login.restore-password")}
                         </Link>
                     </p>
                 </div>
                 <div className="col-12">
                     <p className="mb-0">
-                        No tienes una cuenta?{" "}
+                        {t("login.register?")}
                         <Link to={"/home/register"} className="text-white-50 fw-bold">
-                            Regístrate
+                            {t("login.register")}
                         </Link>
                     </p>
                 </div>

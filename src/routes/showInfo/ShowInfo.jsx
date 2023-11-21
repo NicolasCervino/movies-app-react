@@ -5,6 +5,7 @@ import MovieModal from "../../components/modal/modalContent/movieModal/MovieModa
 import Api from "../../service/api";
 import useModal from "../../hooks/useModal";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 const ShowInfo = () => {
     const { id } = useParams();
@@ -13,6 +14,7 @@ const ShowInfo = () => {
     const [show, handleClose] = useModal("/tv-shows");
 
     const navigate = useNavigate();
+    const { i18n } = useTranslation();
 
     useEffect(() => {
         const addShowInfo = (data) => {
@@ -24,7 +26,7 @@ const ShowInfo = () => {
             return show;
         };
 
-        Api.getData(id, "tv")
+        Api.getData(id, "tv", i18n.language)
             .then((response) => {
                 const show = addShowInfo(response.data);
                 setTvShow(show);
@@ -32,7 +34,7 @@ const ShowInfo = () => {
             .catch(() => {
                 navigate("/error");
             });
-    }, [id]);
+    }, [id, i18n.language]);
 
     return (
         tvShow && (

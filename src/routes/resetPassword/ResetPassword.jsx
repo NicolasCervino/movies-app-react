@@ -4,10 +4,12 @@ import { useAuth } from "../../context/AuthContext";
 import CustomModal from "../../components/modal/CustomModal";
 import ResetModal from "../../components/modal/modalContent/resetModal/ResetModal";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 function ResetPassword() {
     const [show, handleClose] = useModal("/home");
     const { resetPassword } = useAuth();
+    const [t, i18n] = useTranslation("global")
 
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
@@ -20,7 +22,7 @@ function ResetPassword() {
         try {
             await resetPassword(email);
             setStatus(true);
-            setMessage("Se envio un correo electronico con un link para restablecer la contraseña");
+            setMessage(t("restore-password.message"))
         } catch (error) {
             setMessage(error.message);
         }

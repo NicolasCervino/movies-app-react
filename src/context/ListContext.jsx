@@ -2,6 +2,7 @@ import React, { useState, useEffect, createContext, useContext } from "react";
 import { useDb } from "../hooks/useDb";
 import { useAuth } from "./AuthContext";
 import { useSweetAlert } from "../hooks/useSweetAlert";
+import { useTranslation } from "react-i18next";
 
 export const MyListContext = createContext();
 
@@ -18,6 +19,8 @@ export const MyListProvider = ({ children }) => {
     const { showAlert } = useSweetAlert();
 
     const { user } = useAuth();
+
+    const [t] = useTranslation("global")
 
     useEffect(() => {
         if (!user) {
@@ -39,16 +42,18 @@ export const MyListProvider = ({ children }) => {
     const addMovie = async (movie) => {
         if (!movieOnList(movie) && user !== null) {
             addMovieToDB(movie, "movie");
-            showAlert(`Se agrego ${movie.title} a la lista`, "success");
+            //showAlert(`Se agrego ${movie.title} a la lista`, "success");
+            showAlert(t('alerts.add', { movieTitle: movie.title }), "success");
         } else {
-            showAlert("Debe Iniciar Sesion para poder agregar peliculas", "warning");
+            showAlert(t("alerts.error-1"), "warning");
         }
     };
 
     const removeMovie = (movie) => {
         if (user !== null) {
             removeMovieFromDb(movie, "movie");
-            showAlert(`Se elimino ${movie.title} a la lista`, "error");
+            //showAlert(`Se elimino ${movie.title} a la lista`, "error");
+            showAlert(t('alerts.remove', { movieTitle: movie.title }), "error");
         } else {
             showAlert("Debe Iniciar Sesion para poder eliminar peliculas", "warning");
         }
@@ -57,16 +62,18 @@ export const MyListProvider = ({ children }) => {
     const addShow = (show) => {
         if (!showOnList(show) && user !== null) {
             addMovieToDB(show, "tv");
-            showAlert(`Se agrego ${show.name} a la lista`, "success");
+            //showAlert(`Se agrego ${show.name} a la lista`, "success");
+            showAlert(t('alerts.add', { movieTitle: show.name }), "success");
         } else {
-            showAlert("Debe Iniciar Sesion para poder agregar series", "warning");
+            showAlert(t("alerts.error-2"), "warning");
         }
     };
 
     const removeShow = (show) => {
         if (user !== null) {
             removeMovieFromDb(show, "tv");
-            showAlert(`Se elimino ${show.name} a la lista`, "error");
+            //showAlert(`Se elimino ${show.name} a la lista`, "error");
+            showAlert(t("alerts.remove",{ movieTitle: show.name }), "error")
         } else {
             showAlert("Debe Iniciar Sesion para poder eliminar series", "warning");
         }

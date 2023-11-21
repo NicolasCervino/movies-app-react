@@ -1,0 +1,125 @@
+{
+    "navbar": {
+        "my-list": "My List",
+        "movies": "Movies",
+        "shows": "TV Shows",
+        "genres": "Genres"
+    },
+    "searchbar": {
+        "placeholder": "Search"
+    },
+    "login": {
+        "title": "Login",
+        "description": "Type email and password!",
+        "error-message-1": "Wrong email or password",
+        "error-message-2": "Email is not valid",
+        "forgot-password": "Forgot your password? ",
+        "restore-password": "Restore password",
+        "register?": "Don't have an account? ",
+        "register": "Register"
+    },
+    "login-form": {
+        "email-placeholder": "Type a registered email",
+        "password-placeholder": "6 characters minimum",
+        "password-label": "Password",
+        "button": "LOGIN",
+        "socials": "Or login with socials..."
+    },
+    "register": {
+        "title": "Register",
+        "description": "Type your email and a password!",
+        "error-message-1": "Email is already in use",
+        "error-message-2": "Email is not valid",
+        "error-message-3": "Password must have at least 6 characters",
+        "login?": "Already have an account? ",
+        "login": "Login"
+    },
+    "register-form": {
+        "email-placeholder": "Type a valid email",
+        "password-placeholder": "6 characters minimum",
+        "password-static-label": "Password",
+        "button": "Register",
+        "password-label": "Repeat password",
+        "password-label-error": "Passwords don't match"
+    },
+    "restore-password": {
+        "title": "Restore Password",
+        "description": "Enter your email and if it matches we will send you a link!",
+        "message": "An email was sent with a link to reset your password.",
+        "email-placeholder": "Type a registered email",
+        "button-1": "Send email",
+        "button-2": "Back to Login"
+    },
+    "category-selector": {
+        "actors": "Actors"
+    },
+    "carrousel-item": {
+        "add-button": " Add to my list",
+        "delete-button": "Delete from my list",
+        "on-list-button": " On my list",
+        "info-button": "More details"
+    },
+    "movie-swipers": {
+        "my-list": "Movies on My List:",
+        "populars": "Popular Movies:",
+        "top-rated": "Top Rated:"
+    },
+    "show-swipers": {
+        "my-list": "TV Shows on My List:",
+        "populars": "Popular TV Shows:",
+        "top-rated": "Top Rated:"
+    },
+    "see-more-slide": {
+        "button": "See more..."
+    },
+    "search": {
+        "empty": "No results...",
+        "empty-header": "There are no search results",
+        "results": "Results for:",
+        "results-header": "search result/s for:"
+    },
+    "my-profile": {
+        "header": "My Profile",
+        "user": "User: ",
+        "button": "Log Out"
+    },
+    "modal-info": {
+        "director": "Director: ",
+        "creator":  "Created by: ",
+        "duration": "Runtime: ",
+        "seasons": "Seasons: ",
+        "genres": "Genres: ",
+        "year": "Year: ",
+        "cast": "Cast: "
+    },
+    "movies": {
+        "header-title": "Movies",
+        "popular": "Populars",
+        "top-rated": "Top Rated",
+        "upcoming": "Upcoming"
+    },
+    "shows": {
+        "header-title": "TV Shows",
+        "on-the-air": "On the Air"
+    },
+    "my-list": {
+        "header-title": "My List",
+        "movies": "Movies on My List:",
+        "shows": "TV Shows on My List:",
+        "empty-list": "The List is empty..."
+    },
+    "alerts": {
+        "add": "{{movieTitle}} was added to the list",
+        "remove": "{{movieTitle}} was removed from the list",
+        "error-1": "Must Login to add movies",
+        "error-2": "Must Login to add TV Shows"
+    },
+    "language-selection": {
+        "header": "Language Selection",
+        "title": "Select your language",
+        "option-1": "Spanish",
+        "option-2": "English",
+        "option-3": "Portuguese",
+        "option-4": "Japanese"
+    }
+}

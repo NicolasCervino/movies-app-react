@@ -3,10 +3,12 @@ import { useAuth } from "../../../../context/AuthContext";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./profile-modal.css";
+import { useTranslation } from "react-i18next";
 
 function ProfileModal() {
     const { user, logout } = useAuth();
     const navigate = useNavigate();
+    const [t, i18n] = useTranslation("global")
 
     const handleLogout = async () => {
         await logout();
@@ -18,7 +20,7 @@ function ProfileModal() {
             <div className="row">
                 <div className="col-12">
                     <h1 className="titulo-modal" style={{ fontFamily: "Bebas Neue, cursive" }}>
-                        Usuario: {user.displayName || user.email}
+                        {t("my-profile.user")} {user.displayName || user.email}
                     </h1>
                 </div>
             </div>
@@ -34,7 +36,7 @@ function ProfileModal() {
             <div className="row">
                 <div className="col-12">
                     <button className="btn w-100 btn-logout" onClick={handleLogout}>
-                        Cerrar Sesión
+                        {t("my-profile.button")}
                     </button>
                 </div>
             </div>

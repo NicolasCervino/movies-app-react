@@ -5,6 +5,7 @@ import MovieModal from "../../components/modal/modalContent/movieModal/MovieModa
 import Api from "../../service/api";
 import useModal from "../../hooks/useModal";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 const MovieInfo = () => {
     const { id } = useParams();
@@ -13,6 +14,8 @@ const MovieInfo = () => {
     const [show, handleClose] = useModal("/movies");
 
     const navigate = useNavigate();
+
+    const { i18n } = useTranslation();
 
     useEffect(() => {
         const addMovieInfo = (data) => {
@@ -23,7 +26,7 @@ const MovieInfo = () => {
             return movie;
         };
 
-        Api.getData(id, "movie")
+        Api.getData(id, "movie", i18n.language)
             .then((response) => {
                 const movie = addMovieInfo(response.data);
                 setMovie(movie);
@@ -31,7 +34,7 @@ const MovieInfo = () => {
             .catch(() => {
                 navigate("/error");
             });
-    }, [id]);
+    }, [id, i18n.language]);
 
     return (
         movie && (

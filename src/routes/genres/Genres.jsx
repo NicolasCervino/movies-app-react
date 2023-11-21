@@ -3,16 +3,18 @@ import { Helmet } from "react-helmet";
 import Api from "../../service/api";
 import CategorySelector from "../home/categorySelector/CategorySelector";
 import GenreCard from "./genreCards/GenreCard";
+import { useTranslation } from "react-i18next";
 
 const Genres = () => {
     const [genres, setGenres] = useState([]);
     const [category, setCategory] = useState("movie");
+    const { i18n } = useTranslation();
 
     useEffect(() => {
-        Api.getGenres(category).then((data) => {
+        Api.getGenres(category, i18n.language).then((data) => {
             setGenres(data.genres);
         });
-    }, [category]);
+    }, [category, i18n.language]);
 
     return (
         <>

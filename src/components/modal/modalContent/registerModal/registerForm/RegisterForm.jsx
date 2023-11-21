@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 function RegisterForm({ submit, email, setEmail, password, setPassword, errorMessage, setErrorMesage }) {
     const [hidePassword, setHidePassword] = useState(true);
@@ -8,15 +9,17 @@ function RegisterForm({ submit, email, setEmail, password, setPassword, errorMes
 
     const [repeatPassword, setRepeatPassword] = useState("");
 
+    const [t, i18n] = useTranslation("global")
+
     const validateButton = () => {
         return email.trim() === "" || password.trim() === "" || password.length < 6 || errorMessage !== "" || repeatPassword !== password;
     };
 
     const validateRepeatPasswordLabel = () => {
         if (repeatPassword !== password && repeatPassword !== "") {
-            return <label className="form-label unselectable error-message">Las contraseñas no coinciden</label>;
+            return <label className="form-label unselectable error-message">{t("register-form.password-label-error")}</label>;
         } else {
-            return <label className="form-label unselectable">Repetir contraseña</label>;
+            return <label className="form-label unselectable">{t("register-form.password-label")}</label>;
         }
     };
 
@@ -28,7 +31,7 @@ function RegisterForm({ submit, email, setEmail, password, setPassword, errorMes
                         type="email"
                         className="form-control form-control-sm"
                         defaultValue={email}
-                        placeholder={"Ingrese un correo valido"}
+                        placeholder={t("register-form.email-placeholder")}
                         required
                         onChange={(e) => {
                             setErrorMesage("");
@@ -50,7 +53,7 @@ function RegisterForm({ submit, email, setEmail, password, setPassword, errorMes
                             }}
                             defaultValue={password}
                             minLength={6}
-                            placeholder={"6 caracteres como minimo"}
+                            placeholder={t("register-form.password-placeholder")}
                             required
                         />
                         {hidePassword ? (
@@ -63,7 +66,7 @@ function RegisterForm({ submit, email, setEmail, password, setPassword, errorMes
                             />
                         )}
                     </div>
-                    <label className="form-label unselectable">Contraseña</label>
+                    <label className="form-label unselectable">{t("register-form.password-static-label")}</label>
                 </div>
             </div>
 
@@ -78,7 +81,7 @@ function RegisterForm({ submit, email, setEmail, password, setPassword, errorMes
                                 setRepeatPassword(e.target.value);
                             }}
                             minLength={6}
-                            placeholder={"6 caracteres como minimo"}
+                            placeholder={t("register-form.password-placeholder")}
                             required
                         />
                         {hideRPassword ? (
@@ -97,7 +100,7 @@ function RegisterForm({ submit, email, setEmail, password, setPassword, errorMes
 
             <div className="col-12">
                 <button type="submit" className={"login-button btn btn-sm px-4"} disabled={validateButton()}>
-                    REGRISTRARSE
+                    {t("register-form.button")}
                 </button>
             </div>
         </form>

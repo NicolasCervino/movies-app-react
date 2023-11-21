@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 function ResetModal({ email, setEmail, submit, message, status }) {
+
+    const [t, i18n] = useTranslation("global")
+
     const validateButton = () => {
         // Regular expression to check if string is email
         const regexExp = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -13,9 +17,9 @@ function ResetModal({ email, setEmail, submit, message, status }) {
             <div className="row">
                 <div className="col-12">
                     <h1 className="titulo-modal" style={{ fontFamily: "Bebas Neue, cursive" }}>
-                        Restablecer contraseña
+                        {t("restore-password.title")}
                     </h1>
-                    <p>Ingrese su email y en caso de que coincida le enviaremos un enlace!</p>
+                    <p>{t("restore-password.description")}</p>
                 </div>
             </div>
             <form className="row" onSubmit={(e) => submit(e)}>
@@ -26,7 +30,7 @@ function ResetModal({ email, setEmail, submit, message, status }) {
                             id="inputUsername"
                             className="form-control form-control-sm"
                             defaultValue={email}
-                            placeholder={"Ingrese un email registrado"}
+                            placeholder={t("restore-password.email-placeholder")}
                             required
                             onChange={(e) => setEmail(e.target.value)}
                         />
@@ -39,11 +43,11 @@ function ResetModal({ email, setEmail, submit, message, status }) {
                 <div className="col-12">
                     {!status ? (
                         <button type="submit" className="login-button btn btn-sm px-4" disabled={validateButton()}>
-                            Enviar email
+                            {t("restore-password.button-1")}
                         </button>
                     ) : (
                         <Link className="login-button btn btn-sm px-4" to="/home/login">
-                            Volver a Iniciar Sesion
+                            {t("restore-password.button-2")}
                         </Link>
                     )}
                 </div>

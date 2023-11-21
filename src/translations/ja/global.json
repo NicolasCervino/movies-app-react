@@ -1,0 +1,125 @@
+{
+    "navbar": {
+        "my-list": "私のリスト",
+        "movies": "映画",
+        "shows": "テレビ番組",
+        "genres": "ジャンル"
+    },
+    "searchbar": {
+        "placeholder": "検索"
+    },
+    "login": {
+        "title": "ログイン",
+        "description": "メールアドレスとパスワードを入力してください！",
+        "error-message-1": "間違ったメールアドレスまたはパスワード",
+        "error-message-2": "メールアドレスが有効ではありません",
+        "forgot-password": "パスワードをお忘れですか？",
+        "restore-password": "パスワードを復元",
+        "register?": "アカウントをお持ちでないですか？",
+        "register": "登録"
+    },
+    "login-form": {
+        "email-placeholder": "登録済みのメールアドレスを入力",
+        "password-placeholder": "6文字以上",
+        "password-label": "パスワード",
+        "button": "ログイン",
+        "socials": "またはソーシャルアカウントでログイン..."
+    },
+    "register": {
+        "title": "登録",
+        "description": "メールアドレスとパスワードを入力してください！",
+        "error-message-1": "メールアドレスは既に使用されています",
+        "error-message-2": "メールアドレスが有効ではありません",
+        "error-message-3": "パスワードは少なくとも6文字である必要があります",
+        "login?": "既にアカウントをお持ちですか？",
+        "login": "ログイン"
+    },
+    "register-form": {
+        "email-placeholder": "有効なメールアドレスを入力",
+        "password-placeholder": "6文字以上",
+        "password-static-label": "パスワード",
+        "button": "登録",
+        "password-label": "パスワードを繰り返す",
+        "password-label-error": "パスワードが一致しません"
+    },
+    "restore-password": {
+        "title": "パスワードの復元",
+        "description": "メールアドレスを入力し、一致する場合はリンクを送信します！",
+        "message": "メールが送信され、パスワードをリセットするためのリンクが含まれています。",
+        "email-placeholder": "登録済みのメールアドレスを入力",
+        "button-1": "メールを送信",
+        "button-2": "ログインに戻る"
+    },
+    "category-selector": {
+        "actors": "俳優"
+    },
+    "carrousel-item": {
+        "add-button": " マイリストに追加",
+        "delete-button": "マイリストから削除",
+        "on-list-button": " マイリストにあります",
+        "info-button": "詳細"
+    },
+    "movie-swipers": {
+        "my-list": "私のリストの映画:",
+        "populars": "人気のある映画:",
+        "top-rated": "トップ評価:"
+    },
+    "show-swipers": {
+        "my-list": "私のリストのテレビ番組:",
+        "populars": "人気のあるテレビ番組:",
+        "top-rated": "トップ評価:"
+    },
+    "see-more-slide": {
+        "button": "もっと見る..."
+    },
+    "search": {
+        "empty": "結果なし...",
+        "empty-header": "検索結果はありません",
+        "results": "結果:",
+        "results-header": "のための検索結果:"
+    },
+    "my-profile": {
+        "header": "私のプロフィール",
+        "user": "ユーザー: ",
+        "button": "ログアウト"
+    },
+    "modal-info": {
+        "director": "監督: ",
+        "creator":  "制作: ",
+        "duration": "再生時間: ",
+        "seasons": "シーズン: ",
+        "genres": "ジャンル: ",
+        "year": "年: ",
+        "cast": "キャスト: "
+    },
+    "movies": {
+        "header-title": "映画",
+        "popular": "人気作",
+        "top-rated": "トップ評価",
+        "upcoming": "公開予定"
+    },
+    "shows": {
+        "header-title": "テレビ番組",
+        "on-the-air": "オン ザ エア"
+    },
+    "my-list": {
+        "header-title": "私のリスト",
+        "movies": "私のリストの映画:",
+        "shows": "私のリストのテレビ番組:",
+        "empty-list": "リストは空です..."
+    },
+    "alerts": {
+        "add": "{{movieTitle}} がリストに追加されました",
+        "remove": "{{movieTitle}} がリストから削除されました",
+        "error-1": "映画を追加するにはログインする必要があります",
+        "error-2": "テレビ番組を追加するにはログインする必要があります"
+    },
+    "language-selection": {
+        "header": "言語選択",
+        "title": "言語を選択してください",
+        "option-1": "スペイン語",
+        "option-2": "英語",
+        "option-3": "ポルトガル語",
+        "option-4": "日本語"
+    }
+}

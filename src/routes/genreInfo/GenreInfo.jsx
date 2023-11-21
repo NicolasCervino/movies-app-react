@@ -4,6 +4,7 @@ import Api from "../../service/api";
 import InfiniteCardScroll from "../../components/InfiniteScroll/InfiniteCardScroll";
 import CategorySelector from "../../components/categorySelector/CategorySelector";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 const GenreInfo = () => {
     const { type, genreName } = useParams();
@@ -16,10 +17,11 @@ const GenreInfo = () => {
     const [currentGenreName, setCurrentGenreName] = useState();
 
     const navigate = useNavigate();
+    const { i18n } = useTranslation();
 
     useEffect(() => {
         //GET GENRE OPTIONS
-        Api.getGenres(type).then((data) => {
+        Api.getGenres(type, i18n.language).then((data) => {
             const id = data.genres
                 .map((g) => ({ id: g.id, name: g.name.replace(/\s+/g, "").toLowerCase() }))
                 .find((g) => g.name === genreName)?.id;
@@ -46,7 +48,7 @@ const GenreInfo = () => {
                 navigate("/");
             }
         });
-    }, [type, genreName]);
+    }, [type, genreName, i18n.language]);
 
     return (
         <>

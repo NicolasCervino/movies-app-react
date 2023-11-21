@@ -27,7 +27,6 @@ const MovieCard = ({ element, type, genreName, category, wide }) => {
         switch (type) {
             case "movie":
                 return element.title;
-
             case "tv":
                 return element.name;
             case "genre":

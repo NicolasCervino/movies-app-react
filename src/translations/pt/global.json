@@ -1,0 +1,125 @@
+{
+    "navbar": {
+        "my-list": "Minha Lista",
+        "movies": "Filmes",
+        "shows": "Programas de TV",
+        "genres": "Gêneros"
+    },
+    "searchbar": {
+        "placeholder": "Pesquisar"
+    },
+    "login": {
+        "title": "Entrar",
+        "description": "Digite e-mail e senha!",
+        "error-message-1": "E-mail ou senha incorretos",
+        "error-message-2": "E-mail inválido",
+        "forgot-password": "Esqueceu sua senha? ",
+        "restore-password": "Restaurar senha",
+        "register?": "Não tem uma conta? ",
+        "register": "Registrar"
+    },
+    "login-form": {
+        "email-placeholder": "Digite um e-mail registrado",
+        "password-placeholder": "Mínimo de 6 caracteres",
+        "password-label": "Senha",
+        "button": "ENTRAR",
+        "socials": "Ou entrar com redes sociais..."
+    },
+    "register": {
+        "title": "Registrar",
+        "description": "Digite seu e-mail e uma senha!",
+        "error-message-1": "E-mail já está em uso",
+        "error-message-2": "E-mail inválido",
+        "error-message-3": "A senha deve ter pelo menos 6 caracteres",
+        "login?": "Já tem uma conta? ",
+        "login": "Entrar"
+    },
+    "register-form": {
+        "email-placeholder": "Digite um e-mail válido",
+        "password-placeholder": "Mínimo de 6 caracteres",
+        "password-static-label": "Senha",
+        "button": "Registrar",
+        "password-label": "Repetir senha",
+        "password-label-error": "As senhas não coincidem"
+    },
+    "restore-password": {
+        "title": "Restaurar Senha",
+        "description": "Digite seu e-mail e, se coincidir, enviaremos um link!",
+        "message": "Um e-mail foi enviado com um link para redefinir sua senha.",
+        "email-placeholder": "Digite um e-mail registrado",
+        "button-1": "Enviar e-mail",
+        "button-2": "Voltar para o Login"
+    },
+    "category-selector": {
+        "actors": "Atores"
+    },
+    "carrousel-item": {
+        "add-button": " Adicionar à minha lista",
+        "delete-button": "Remover da minha lista",
+        "on-list-button": " Na minha lista",
+        "info-button": "Mais detalhes"
+    },
+    "movie-swipers": {
+        "my-list": "Filmes na Minha Lista:",
+        "populars": "Filmes Populares:",
+        "top-rated": "Mais Avaliados:"
+    },
+    "show-swipers": {
+        "my-list": "Programas de TV na Minha Lista:",
+        "populars": "Programas de TV Populares:",
+        "top-rated": "Mais Avaliados:"
+    },
+    "see-more-slide": {
+        "button": "Ver mais..."
+    },
+    "search": {
+        "empty": "Sem resultados...",
+        "empty-header": "Não há resultados de pesquisa",
+        "results": "Resultados para:",
+        "results-header": "resultado/s da pesquisa para:"
+    },
+    "my-profile": {
+        "header": "Meu Perfil",
+        "user": "Usuário: ",
+        "button": "Sair"
+    },
+    "modal-info": {
+        "director": "Diretor: ",
+        "creator":  "Criado por: ",
+        "duration": "Duração: ",
+        "seasons": "Temporadas: ",
+        "genres": "Gêneros: ",
+        "year": "Ano: ",
+        "cast": "Elenco: "
+    },
+    "movies": {
+        "header-title": "Filmes",
+        "popular": "Populares",
+        "top-rated": "Mais Avaliados",
+        "upcoming": "Próximos Lançamentos"
+    },
+    "shows": {
+        "header-title": "Programas de TV",
+        "on-the-air": "No Ar"
+    },
+    "my-list": {
+        "header-title": "Minha Lista",
+        "movies": "Filmes na Minha Lista:",
+        "shows": "Programas de TV na Minha Lista:",
+        "empty-list": "A lista está vazia..."
+    },
+    "alerts": {
+        "add": "{{movieTitle}} foi adicionado à lista",
+        "remove": "{{movieTitle}} foi removido da lista",
+        "error-1": "É necessário fazer login para adicionar filmes",
+        "error-2": "É necessário fazer login para adicionar programas de TV"
+    },
+    "language-selection": {
+        "header": "Seleção de Idioma",
+        "title": "Selecione seu idioma",
+        "option-1": "Espanhol",
+        "option-2": "Inglês",
+        "option-3": "Português",
+        "option-4": "Japonês"
+    }
+}

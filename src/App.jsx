@@ -19,6 +19,7 @@ import ProtectedRoute from "./routes/protectedRoute/ProtectedRoute";
 import Profile from "./routes/profile/Profile";
 import ResetPassword from "./routes/resetPassword/ResetPassword";
 import NotLoggedIn from "./routes/protectedRoute/NotLoggedIn";
+import LanguageSelection from "./routes/languageSelection/LanguageSelection";
 
 function App() {
     const location = useLocation();
@@ -55,6 +56,10 @@ function App() {
                                             <Profile />
                                         </ProtectedRoute>
                                     }
+                                />
+                                <Route
+                                    path="language-selection"
+                                    element={ <LanguageSelection /> }
                                 />
                                 <Route
                                     path="reset-password"
@@ -116,6 +121,10 @@ function App() {
                                         <Profile />
                                     </ProtectedRoute>
                                 }
+                            />
+                            <Route
+                                path="home/language-selection"
+                                element={ <LanguageSelection /> }
                             />
                         </Routes>
                     )}

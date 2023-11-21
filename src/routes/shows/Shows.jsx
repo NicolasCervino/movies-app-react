@@ -4,15 +4,18 @@ import CategorySelector from "../../components/categorySelector/CategorySelector
 import InfiniteCardScroll from "../../components/InfiniteScroll/InfiniteCardScroll";
 import { Outlet } from "react-router-dom";
 import { Helmet } from "react-helmet";
+import { useTranslation } from "react-i18next";
 
 const Shows = () => {
     const [shows, setShows] = useState([]);
     const [category, setCategory] = useState(window.location.hash.slice(1, window.location.hash.length) || "popular");
 
+    const [t, i18n] = useTranslation("global")
+
     const [options, setOptions] = useState([
-        { value: "popular", label: "Populares" },
-        { value: "top_rated", label: "Mejor Valoradas" },
-        { value: "on_the_air", label: "En emision" },
+        { value: "popular", label: t("movies.popular")  },
+        { value: "top_rated", label: t("movies.top-rated")  },
+        { value: "on_the_air", label: t("shows.on-the-air")  },
     ]);
 
     const [totalPages, setTotalPages] = useState();
@@ -21,20 +24,20 @@ const Shows = () => {
     useEffect(() => {
         switch (category) {
             case "popular":
-                Api.getPopular("tv", 1).then((data) => {
+                Api.getPopular("tv", 1, i18n.language).then((data) => {
                     setShows(data.results);
                     setTotalPages(data.total_pages);
                 });
                 break;
             case "top_rated":
-                Api.getTop("tv", 1).then((data) => {
+                Api.getTop("tv", 1, i18n.language).then((data) => {
                     setShows(data.results);
                     setTotalPages(data.total_pages);
                 });
                 sortOptions(category);
                 break;
             case "on_the_air":
-                Api.getAiring(1).then((data) => {
+                Api.getAiring(1, i18n.language).then((data) => {
                     setShows(data.results);
                     setTotalPages(data.total_pages);
                 });
@@ -43,7 +46,7 @@ const Shows = () => {
             default:
                 setCategory("popular"); // In case of any random hash
         }
-    }, [category]);
+    }, [category, i18n.language]);
 
     // Puts current value as first option
     const sortOptions = (currentValue) => {
@@ -55,7 +58,7 @@ const Shows = () => {
     return (
         <>
             <Helmet>
-                <title>MoviesApp | Series</title>
+                <title>MoviesApp | {t("shows.header-title")}</title>
             </Helmet>
             <div className="row">
                 <div className="col-12 category-selector py-3 px-2 justify-content-center justify-content-sm-start">

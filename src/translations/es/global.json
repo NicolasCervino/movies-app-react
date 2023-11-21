@@ -1,0 +1,125 @@
+{
+    "navbar": {
+        "my-list": "Mi Lista",
+        "movies": "Peliculas",
+        "shows": "Series",
+        "genres": "Generos"
+    },
+    "searchbar": {
+        "placeholder": "Busqueda"
+    },
+    "login": {
+        "title": "Iniciar Sesion",
+        "description": "Ingrese su email y contraseña!",
+        "error-message-1": "Email o contraseña incorrectos",
+        "error-message-2": "Email invalido",
+        "forgot-password": "Olvidaste tu contraseña? ",
+        "restore-password": "Restablecer contraseña",
+        "register?": "No tienes una cuenta? ",
+        "register": "Regístrate"
+    },
+    "login-form": {
+        "email-placeholder": "Ingrese un email registrado",
+        "password-placeholder": "6 caracteres como minimo",
+        "password-label": "Contraseña",
+        "button": "INICIAR SESIÓN",
+        "socials": "Iniciar sesion con red social.."
+    },
+    "register": {
+        "title": "Registrarse",
+        "description": "Ingrese su email y una contraseña!",
+        "error-message-1": "El email ingresado ya se encuentra en uso",
+        "error-message-2": "El email ingresado no es valido",
+        "error-message-3": "La contraseña debe tener al menos 6 caracteres",
+        "login?": "Ya tienes una cuenta? ",
+        "login": "Iniciar Sesion"
+    },
+    "register-form": {
+        "email-placeholder": "Ingrese un correo valido",
+        "password-placeholder": "6 caracteres como minimo",
+        "password-static-label": "Contraseña",
+        "button": "REGRISTRARSE",
+        "password-label": "Repetir contraseña",
+        "password-label-error": "Las contraseñas no coinciden"
+    },
+    "restore-password": {
+        "title": "Restablecer contraseña",
+        "description": "Ingrese su email y en caso de que coincida le enviaremos un enlace!",
+        "message": "Se envio un correo electronico con un link para restablecer la contraseña",
+        "email-placeholder": "Ingrese un email registrado",
+        "button-1": "Enviar email",
+        "button-2": "Volver a Iniciar Sesion"
+    },
+    "category-selector": {
+        "actors": "Actores"
+    },
+    "carrousel-item": {
+        "add-button": "Agregar a mi lista",
+        "delete-button": "Eliminar de mi lista",
+        "on-list-button": " En mi lista",
+        "info-button": "Mas información"
+    },
+    "movie-swipers": {
+        "my-list": "Peliculas en Mi lista:",
+        "populars": "Peliculas populares:",
+        "top-rated": "Mejor valoradas:"
+    },
+    "show-swipers:": {
+        "my-list": "Series en Mi lista:",
+        "populars": "Series Populares:",
+        "top-rated": "Mejor valoradas:"
+    },
+    "see-more-slide": {
+        "button": "Ver mas..."
+    },
+    "search": {
+        "empty": "No hay resultados...",
+        "empty-header": "No hay resultados de busqueda",
+        "results": "Resultados para:",
+        "results-header": "resultado/s para:"
+    },
+    "my-profile": {
+        "header": "Mi Perfil",
+        "user": "Usuario: ",
+        "button": "Cerrar Sesión"
+    },
+    "modal-info": {
+        "director": "Dirección: ",
+        "creator":  "Creado por: ",
+        "duration": "Duracion: ",
+        "seasons": "Temporadas: ",
+        "genres": "Generos: ",
+        "year": "Año: ",
+        "cast": "Elenco: "
+    },
+    "movies": {
+        "header-title": "Peliculas",
+        "popular": "Populares",
+        "top-rated": "Mejor Valoradas",
+        "upcoming": "Proximamente"
+    },
+    "shows": {
+        "header-title": "Series",
+        "on-the-air": "En emision"
+    },
+    "my-list": {
+        "header-title": "Mi Lista",
+        "movies": "Peliculas en mi lista:",
+        "shows": "Series en mi lista:",
+        "empty-list": "La lista esta vacia..."
+    },
+    "alerts": {
+        "add": "Se agregó {{movieTitle}} a la lista",
+        "remove": "Se elimino {{movieTitle}} de la lista",
+        "error-1": "Debe Iniciar Sesion para poder agregar peliculas",
+        "error-2": "Debe Iniciar Sesion para poder agregar series"
+    },
+    "language-selection": {
+        "header": "Selección de idioma",
+        "title": "Selecciona tu idioma",
+        "option-1": "Español",
+        "option-2": "Inglés",
+        "option-3": "Portugués",
+        "option-4": "Japonés"
+    }
+}

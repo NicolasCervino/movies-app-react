@@ -5,10 +5,12 @@ import { useMyList } from "../../../../../context/ListContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 import useWindowDimensions from "../../../../../hooks/useWindowDimensions";
+import { useTranslation } from "react-i18next";
 
 const ModalInfo = ({ element, type }) => {
     const genres = element.genres?.map((g) => g.name);
     const { addElement, removeElement, elementOnList } = useMyList();
+    const [t, i18n] = useTranslation("global")
 
     const [isMobile] = useWindowDimensions();
 
@@ -35,11 +37,11 @@ const ModalInfo = ({ element, type }) => {
                         <button className="btn btn-add-to-list w-100" onClick={elementOnList(element, type) ? handleRemove : handleAdd}>
                             {elementOnList(element, type) ? (
                                 <>
-                                    <FontAwesomeIcon icon={faCheck} /> En mi lista
+                                    <FontAwesomeIcon icon={faCheck} />{t("carrousel-item.on-list-button")}
                                 </>
                             ) : (
                                 <>
-                                    <FontAwesomeIcon icon={faPlus} /> Agregar a mi lista
+                                    <FontAwesomeIcon icon={faPlus} />{t("carrousel-item.add-button")}
                                 </>
                             )}
                         </button>
@@ -48,12 +50,12 @@ const ModalInfo = ({ element, type }) => {
                         <span className="modal--info pe-2">
                             {element.director ? (
                                 <>
-                                    <span style={{ color: "#777" }}> Dirección: </span>
+                                    <span style={{ color: "#777" }}>{t("modal-info.director")}</span>
                                     {element.director}
                                 </>
                             ) : (
                                 <>
-                                    <span style={{ color: "#777" }}> Creado por: </span>
+                                    <span style={{ color: "#777" }}>{t("modal-info.creator")}</span>
                                     {element.creator}
                                 </>
                             )}
@@ -61,18 +63,18 @@ const ModalInfo = ({ element, type }) => {
 
                         {type === "movie" ? (
                             <span className="modal--info pe-2">
-                                <span style={{ color: "#777" }}> Duracion: </span>
+                                <span style={{ color: "#777" }}>{t("modal-info.duration")}</span>
                                 {element.runtime + "m"}
                             </span>
                         ) : (
                             <span className="modal--info pe-2">
-                                <span style={{ color: "#777" }}> Temporadas: </span>
+                                <span style={{ color: "#777" }}>{t("modal-info.seasons")}</span>
                                 {element.number_of_seasons}
                             </span>
                         )}
 
                         <span className="modal--info pe-2">
-                            <span style={{ color: "#777" }}> Generos: </span>
+                            <span style={{ color: "#777" }}>{t("modal-info.genres")}</span>
                             {genres.map((g, index) => (
                                 <Link to={`/genre/${type}/${g.replace(/\s+/g, "").toLowerCase()}`} key={g} className="genre-link">
                                     {(index ? ", " : "") + g}
@@ -81,7 +83,7 @@ const ModalInfo = ({ element, type }) => {
                         </span>
 
                         <span className="modal--info pe-2">
-                            <span style={{ color: "#777" }}> Año: </span>
+                            <span style={{ color: "#777" }}>{t("modal-info.year")}</span>
                             {type === "movie"
                                 ? new Date(element.release_date).getFullYear()
                                 : new Date(element.first_air_date).getFullYear()}
